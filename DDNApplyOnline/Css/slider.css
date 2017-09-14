@@ -1,0 +1,152 @@
+﻿.body {
+    text-align: center;
+   
+    }
+
+.body-content {
+    text-align: center;
+}
+
+
+
+.heading {
+    text-align: center;
+}
+
+.sylla-section h3 {
+    color: #ffffff;
+    font-family: 'Yantramanav', sans-serif;
+    text-align: center;
+}
+
+.form-control-lg, #texta {
+    border:1px solid #fcbe1b;
+}
+
+    .sylla-section h3:after {
+        width: 100px;
+        height: 2px;
+        background-color: #FCBE1B;
+        display: block;
+        content: "";
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+
+.section-map h3 {
+    color: #fff;
+    font-family: 'Yantramanav', sans-serif;
+    text-align: center;
+}
+
+.cont {
+    font-size:20px;
+}
+    #social p{
+        font-size:15px;
+        color:#fff;
+    }
+#social i {
+    font-size:20px;
+    margin:3px;
+}
+    .section-map h3:after {
+        width: 100px;
+        height: 2px;
+        background-color: #FCBE1B;
+        display: block;
+        content: "";
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+.form-group {
+    color: #FCBE1B;
+}
+
+    .form-group .btn {
+        margin: 12px;
+    }
+
+.form-control {
+  
+    color: #2A2B7B;
+}
+
+    .form-control:focus {
+        border-color: #FCBE1B;
+    }
+
+.form-group .btn {
+    margin: 3px;
+}
+
+
+
+.form-group .btn {
+    font-family: 'Arial', sans-serif;
+    font-size: 120%;
+    font-weight: 200;
+    color: #ffffff;
+    text-decoration: none;
+    border: solid #FCBE1B 2px;
+    background-color: #2A2B7B;
+    padding: 4px 20px;
+    transition: all 0.7s;
+}
+
+
+#map {
+    height: 500px;
+    padding: 10px 20px;
+    margin: auto;
+    width: 100%;
+    border: 3px solid #FCBE1B;
+ 
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.send-email h3 {
+    color: #2A2B7B;
+    font-family: 'Yantramanav', sans-serif;
+    text-align: center;
+}
+
+    .send-email h3:after {
+        width: 100px;
+        height: 2px;
+        background-color: #FCBE1B;
+        display: block;
+        content: "";
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+
+
+.text-center text {
+    color: #FCBE1B;
+    font-size: 150%;
+}
+
+.text-center i {
+    color: #FCBE1B;
+}
+
+.text-center h3:after {
+    width: 100px;
+    height: 2px;
+    background-color: #FCBE1B;
+    display: block;
+    content: "";
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.text-center h3 {
+    color: #fff;
+}

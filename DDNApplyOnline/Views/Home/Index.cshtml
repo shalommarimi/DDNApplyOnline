@@ -1,0 +1,338 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!Doctype html>
+<html>
+
+
+<head>
+    <title>Dynamic DNA Online Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <div id="landing">
+        <header class="cd-auto-hide-header">
+
+            <nav class="cd-primary-nav">
+                <a href="#cd-navigation" class="nav-trigger">
+                    <span>
+                        <em aria-hidden="true"></em>
+                        Menu
+                    </span>
+                </a>
+                <ul id="cd-navigation">
+                    <li><a href="#landing" class="scroll">Home</a></li>
+                    <li><a href="#ann" class="scroll">Announcements</a></li>
+                    <li><a href="#news" class="scroll">Our News</a></li>
+                    <li><a href="#ins" class="scroll">Our Insights</a></li>
+                    <li>@Html.ActionLink("Contact Us", "Contact", "Contact")</li>
+                    <li><a href="#part" class="scroll">Partnerships</a></li>
+                    <li>@Html.ActionLink("Login", "Login", "Authenticate")</li>
+                    <li><a href="#social" class="scroll"><abbr class="fa fa-thumbs-up">Like Us</abbr></a></li>
+
+
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <section class="intro">
+        <div class="inner">
+
+            <div class="content">
+
+                <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay="0s">
+                    <img src="~/Images/DynamicDNALogo.png" />
+
+                </section>
+
+                <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay=".5s">
+
+
+                    <a class="btn" href="@Url.Action("PersonalInformation","Apply")">Apply Now</a>
+                </section>
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong>@ViewBag.Message.
+                    </div>
+
+                }
+                @if (ViewBag.ErrorSub != null)
+                {
+
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Oops! </strong> @ViewBag.ErrorSub
+                    </div>
+                }
+
+                @if (ViewBag.Error != null)
+                {
+
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Oops! </strong> @ViewBag.Error
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </section>
+
+    <div class="announce-news">
+
+        <section class="announcements" id="ann">
+            <h2>Announcements</h2>
+
+
+            <p class="parag">
+                Learnership Programme. Are you unemployed , looking for a learnership in information Technology and programming , want to become employable and apply the skills learnt? want to get a travel allowance while you study? , if the answer is yes then email us your cv, id copy and matric certificate to be considered. email to info@dynamicdna.co.za the subject line should be Learnership. Get this once in a lifetime opportunity. The purpose of the programme is to equip previously disadvantaged youths with nationally recognised qualifications, based on unit standards, while also providing them with workplace experience in the Systems Development landscape.Successful candidates who show dedication to the programme will be considered for a following Higher NQF level qualification, it is of utmost importance that learners give 100% dedication to this programme.
+            </p>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="news" id="news">
+            <h2>DDNA News</h2>
+            <h3> Dynamic DNA to bridge ICT skills gap</h3>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <p class="arrange">
+                            Technology Group Dynamic Technologies has established Dynamic DNA as part of its BEE enterprise development programme.
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p class="arrange">
+                            Dynamic DNA is a 51% black female owned ICT learnership academy which provides learners with a combination of the theor-
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p class="arrange">
+                            etical skills and hands-on work experience they need to thrive in the technology sector. The company says the initiative-
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p class="arrange">
+                            ...helps organisations develop dynamic young people who will become the technology leaders of tomorrow. SA has had peren...
+
+                        </p>
+                        <text><a href="http://www.itweb.co.za/index.php?option=com_content&view=article&id=162444:Dynamic-DNA-to-bridge-ICT-skills-gap&catid=86" target="_blank"></a>Read more</text>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <div class="section-insights" id="ins">
+        <section class="insights">
+            <h2>Our Insights</h2>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <img src="~/Images/Pp.jpg" />
+                        <h3>Induction Day</h3>
+
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="~/Images/Premise.jpg" />
+                        <h3>Our Premises</h3>
+
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="~/Images/DVT_learnership_trainees.jpg" />
+                        <h3>Graduated Trainees</h3>
+
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="~/Images/prudence-mabitsela.jpg" />
+                        <h3>Prudence Mabitsela</h3>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+    </div>
+
+    <div class="section-partnership">
+        <a id="part"></a>
+        <section class="partners">
+            <h2>Partnerships</h2>
+            <div class="cycle-slideshow">
+
+                <span class="cycle-prev">&#9001;</span>
+                <span class="cycle-next">&#9002;</span>
+
+
+                <img src="~/Images/blue.png" />
+                <img src="~/Images/partners.png" />
+                <img src="~/Images/cloud.png" />
+                <img src="~/Images/partners.png" />
+                <img src="~/Images/dvt.png" />
+                <img src="~/Images/partners.png" />
+                <img src="~/Images/microsoft.png" />
+                <img src="~/Images/partners.png" />
+                <img src="~/Images/mict.png" />
+                <img src="~/Images/partners.png" />
+                <img src="~/Images/indigo.png" />
+                <img src="~/Images/partners.png" />
+                <img src="~/Images/partners.png" />
+
+            </div>
+
+        </section>
+
+
+
+        <section class="social" id="social">
+            <div class="text-center">
+                <h2>Connect</h2>
+
+                <div class="icons">
+
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#landing" class="scroll fa fa-home"></a>
+                    <text class="text-sub" data-toggle="modal" data-target="#MyModal"> Subscribe </></text>
+                    <text class="text-sub" data-toggle="modal" data-target="#MyModalAdmin">  Dashboard </></text>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+    <section class="section-footer">
+        <footer>
+            <p>
+                &copy; 2010
+                <script>new Date().getFullYear() > 2010 && document.write("- " + new Date().getFullYear());</script> Dynamic DNA - DTH Group
+            </p>
+
+            @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    $(".scroll").click(function (event) {
+                        event.preventDefault();
+                        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 2000);
+                    });
+                });
+            </script>
+        </footer>
+    </section>
+
+
+    <div id="MyModalAdmin" class="modal fade" role="dialog">
+
+        <div class="modal-dialog modal-sm" id="modals">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <h4>Administration Login</h4>
+
+
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        @using (Html.BeginForm("Login", "Administrator"))
+            {
+                            @Html.ValidationSummary()
+
+
+                            <fieldset>
+                                <div class="form-group">
+
+
+
+
+                                    <div class="col-xs-4">
+                                        <label for="ex2">Username</label>
+                                        <input class="form-control col-xs-4" name="txtUsername" type="text" required>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+
+
+
+                                    <div class="col-xs-3">
+                                        <label for="ex2">Password</label>
+                                        <input class="form-control col-xs-4" name="txtPassword" type="password" required>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="mybtns">
+
+                                    <input type="submit" name="submit" class="btn" value="Login" />
+                                    <input type="reset" name="submit" class="btn" value="Reset" />
+
+
+                                </div>
+
+                            </fieldset>
+
+                        }
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="close" type="button" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
