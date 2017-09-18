@@ -20,10 +20,7 @@ namespace API.Controllers
 
         }
 
-        public RegisterController()
-        {
 
-        }
 
         //  [HttpPost]
 

@@ -12,6 +12,7 @@ namespace DDNApplyOnline.App_Start
         public UnityDependencyResolver(IUnityContainer UnityContainer)
         {
             _UnityContainer = UnityContainer;
+
         }
 
         public object GetService(Type serviceType)
