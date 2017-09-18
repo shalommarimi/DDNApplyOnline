@@ -7,16 +7,15 @@ namespace DAL.Entities
 
 
         [Required]
-        [Display(Name = "Your Email Address")]
         [EmailAddress]
-        public string SentFrom { get; set; }
+        public string Recipient { get; set; }
 
         [Required]
-        [Display(Name = "Enquiry Subject")]
+        [Display(Name = "Subject")]
         public string Subject { get; set; }
 
         [Required]
-        [Display(Name = "Enquiry Message | Content")]
+        [Display(Name = "Enquiry Message")]
         public string Message { get; set; }
 
 

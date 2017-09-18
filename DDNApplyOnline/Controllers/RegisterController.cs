@@ -27,14 +27,15 @@ namespace API.Controllers
             if (ModelState.IsValid)
             {
                 _ISubscribe.RegisterSubscriber(subscriber);
+                _INotification.SendEmail(subscriber);
+                return Json("Thank you. You have been sucessufully subscibed to Dynamic DNA ");
             }
             else
             {
                 return Json("Unable to Subscribe User");
 
             }
-            _INotification.SendEmail(subscriber);
-            return Json("Thank you. You have been sucessufully subscibed to Dynamic DNA ");
+
         }
 
     }

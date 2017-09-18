@@ -65,10 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\INotification.cs" />
     <Compile Include="Services\ISubscribe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EncryptPassword.cs" />
     <Compile Include="Services\IEncryptPassword.cs" />
+    <Compile Include="Services\Notification.cs" />
     <Compile Include="Services\Subscribe.cs" />
   </ItemGroup>
   <ItemGroup>

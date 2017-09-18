@@ -11,6 +11,7 @@ namespace BL.Services
         {
             try
             {
+
                 var _ApplicantDbContext = new ApplicantsDbContext();
                 _ApplicantDbContext.Subscribers.Add(subscriber);
                 _ApplicantDbContext.SaveChanges();
