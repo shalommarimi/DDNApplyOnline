@@ -13,6 +13,7 @@ namespace BL.Configuration
 
             container.RegisterType<IEncryptPassword, EncryptPassword>();
             container.RegisterType<ISubscribe, Subscribe>();
+            container.RegisterType<INotification, Notification>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
 

@@ -150,11 +150,13 @@
     <Content Include="Css\style.css" />
     <Content Include="Css\upload.css" />
     <Content Include="Css\waypoints.css" />
+    <Content Include="EmailTemplate.html" />
     <Content Include="Global.asax" />
     <Content Include="Images\Back.jpg" />
     <Content Include="Images\Background.jpg" />
     <Content Include="Images\blue.png" />
     <Content Include="Images\cloud.png" />
+    <Content Include="Images\DDNA.jpg" />
     <Content Include="Images\dvt.png" />
     <Content Include="Images\DVT_learnership_trainees.jpg" />
     <Content Include="Images\DynamicDNALogo.png" />

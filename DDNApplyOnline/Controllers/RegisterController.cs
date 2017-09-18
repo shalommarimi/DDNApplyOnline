@@ -9,14 +9,16 @@ namespace API.Controllers
     public class RegisterController : ApiController
     {
 
-        private ISubscribe _ISubscribe;
-        private IEncryptPassword _IEncryptPassword;
+        private readonly ISubscribe _ISubscribe;
+        private readonly IEncryptPassword _IEncryptPassword;
+        private readonly INotification _INotification;
 
         public RegisterController()
         {
 
             _ISubscribe = DependencyResolver.Current.GetService<ISubscribe>();
             _IEncryptPassword = DependencyResolver.Current.GetService<IEncryptPassword>();
+            _INotification = DependencyResolver.Current.GetService<INotification>();
         }
 
         public IHttpActionResult Subscribe(SubscriberInformation subscriber)
@@ -31,7 +33,8 @@ namespace API.Controllers
                 return Json("Unable to Subscribe User");
 
             }
-            return Json("Thank you. You have been sucessufully subscibed to Dynamic DNA " + subscriber.FirstName + " " + subscriber.LastName);
+            _INotification.SendEmail(subscriber);
+            return Json("Thank you. You have been sucessufully subscibed to Dynamic DNA ");
         }
 
     }
