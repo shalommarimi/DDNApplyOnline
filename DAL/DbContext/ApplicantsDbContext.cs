@@ -1,5 +1,4 @@
-﻿using ApplyOnline.DataAccessLayer;
-using ApplyOnline.Models;
+﻿using DAL.Entities;
 using System.Data.Entity;
 
 namespace ApplyOnline.DataContext
@@ -16,7 +15,7 @@ namespace ApplyOnline.DataContext
         public virtual DbSet<ApplicationType> ApplicationType { get; set; }
         public virtual DbSet<ApplicationField> ApplicationField { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
-        public virtual DbSet<Subscribe> Subscribers { get; set; }
+        public virtual DbSet<SubscriberInformation> Subscribers { get; set; }
         public virtual DbSet<NewContent> NewContent { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<MaritalStatus> MaritalStatus { get; set; }
@@ -28,6 +27,7 @@ namespace ApplyOnline.DataContext
         public virtual DbSet<Population> Populations { get; set; }
         public virtual DbSet<Files> UploadFiles { get; set; }
         public virtual DbSet<WorkExprience> WorkExpriences { get; set; }
+
 
     }
 }

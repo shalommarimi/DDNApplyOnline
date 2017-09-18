@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
 
-namespace ApplyOnline.Models
+namespace DAL.Entities
 {
     public class Files
     {

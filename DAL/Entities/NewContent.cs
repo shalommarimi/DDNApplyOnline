@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ApplyOnline.Models
+namespace DAL.Entities
 {
     public class NewContent
     {

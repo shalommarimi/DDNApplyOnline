@@ -24,7 +24,12 @@
                         Menu
                     </span>
                 </a>
+                @if (ViewData["result"] != null)
+            {
+                    <h1> @ViewData["result"].ToString();</h1>
+                }
                 <ul id="cd-navigation">
+
                     <li><a href="#landing" class="scroll">Home</a></li>
                     <li><a href="#ann" class="scroll">Announcements</a></li>
                     <li><a href="#news" class="scroll">Our News</a></li>
@@ -33,16 +38,17 @@
                     <li><a href="#part" class="scroll">Partnerships</a></li>
                     <li>@Html.ActionLink("Login", "Login", "Authenticate")</li>
                     <li><a href="#social" class="scroll"><abbr class="fa fa-thumbs-up">Like Us</abbr></a></li>
-
+                    
 
                 </ul>
             </nav>
         </header>
     </div>
 
-    <section class="intro">
+    <section class="intro">s
         <div class="inner">
-
+           
+           
             <div class="content">
 
                 <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay="0s">
@@ -95,8 +101,7 @@
 
         <section class="announcements" id="ann">
             <h2>Announcements</h2>
-
-
+                      
             <p class="parag">
                 Learnership Programme. Are you unemployed , looking for a learnership in information Technology and programming , want to become employable and apply the skills learnt? want to get a travel allowance while you study? , if the answer is yes then email us your cv, id copy and matric certificate to be considered. email to info@dynamicdna.co.za the subject line should be Learnership. Get this once in a lifetime opportunity. The purpose of the programme is to equip previously disadvantaged youths with nationally recognised qualifications, based on unit standards, while also providing them with workplace experience in the Systems Development landscape.Successful candidates who show dedication to the programme will be considered for a following Higher NQF level qualification, it is of utmost importance that learners give 100% dedication to this programme.
             </p>

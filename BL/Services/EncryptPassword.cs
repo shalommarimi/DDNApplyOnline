@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BL.Services
 {
     public class EncryptPassword : IEncryptPassword
     {
+
+
         public string EncryptUserPassword(string userId)
         {
             byte[] hash;
@@ -22,7 +20,7 @@ namespace BL.Services
             {
                 return stringBuilder.ToString();
             }
-           
+
         }
 
     }

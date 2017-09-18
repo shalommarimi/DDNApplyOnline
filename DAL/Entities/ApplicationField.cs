@@ -1,8 +1,8 @@
-﻿using ApplyOnline.DataAccessLayer;
+﻿
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ApplyOnline.Models
+namespace DAL.Entities
 {
     public class ApplicationField
     {

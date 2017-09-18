@@ -1,10 +1,27 @@
-﻿namespace BL
+﻿using ApplyOnline.DataContext;
+using DAL.Entities;
+
+namespace BL.Services
 {
-    class Subscribe
+    public class Subscribe : ISubscribe
     {
-        void RegisterSubscriber()
+
+
+        public void RegisterSubscriber(SubscriberInformation subscriber)
         {
+            try
+            {
+                var _ApplicantDbContext = new ApplicantsDbContext();
+                _ApplicantDbContext.Subscribers.Add(subscriber);
+                _ApplicantDbContext.SaveChanges();
+            }
+            catch (System.Exception)
+            {
+                throw;
+
+            }
 
         }
+
     }
 }

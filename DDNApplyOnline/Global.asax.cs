@@ -1,4 +1,5 @@
-﻿using DDNApplyOnline.App_Start;
+﻿using BL.Configuration;
+using DDNApplyOnline.App_Start;
 using System;
 using System.Web;
 using System.Web.Http;
@@ -17,6 +18,8 @@ namespace DDNApplyOnline
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            IConfigurator.ConfigureUnityContanier();
+
         }
     }
 }

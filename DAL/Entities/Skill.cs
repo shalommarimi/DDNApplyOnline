@@ -1,8 +1,8 @@
-﻿using ApplyOnline.DataAccessLayer;
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ApplyOnline.Models
+namespace DAL.Entities
 {
     public class Skill
     {
@@ -20,5 +20,6 @@ namespace ApplyOnline.Models
         public int FkApplicantId { get; set; }
         [ForeignKey("FkApplicantId")]
         public Personal PersonalInformations { get; set; }
+
     }
 }
