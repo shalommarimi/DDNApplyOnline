@@ -12,14 +12,14 @@ namespace DDNApplyOnline.App_Start
         public UnityDependencyResolver(IUnityContainer UnityContainer)
         {
             _UnityContainer = UnityContainer;
-
         }
+
+
 
         public object GetService(Type serviceType)
         {
             try
             {
-
                 return _UnityContainer.Resolve(serviceType);
             }
             catch (Exception)

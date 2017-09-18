@@ -2,6 +2,7 @@
 using BL.Services;
 using DAL.Entities;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace API.Controllers
 {
@@ -11,35 +12,26 @@ namespace API.Controllers
         private ISubscribe _ISubscribe;
         private IEncryptPassword _IEncryptPassword;
 
-
-
-        public RegisterController(ISubscribe iSubscribe, IEncryptPassword iEncryptPassword)
+        public RegisterController()
         {
-            _ISubscribe = iSubscribe;
-            _IEncryptPassword = iEncryptPassword;
 
+            _ISubscribe = DependencyResolver.Current.GetService<ISubscribe>();
+            _IEncryptPassword = DependencyResolver.Current.GetService<IEncryptPassword>();
         }
 
-
-
-        //  [HttpPost]
-
-        public IHttpActionResult RegisterSubscriber(SubscriberInformation subscriber)
+        public IHttpActionResult Subscribe(SubscriberInformation subscriber)
         {
 
             if (ModelState.IsValid)
             {
-                //var repo = DependencyResolver.Current.GetService<ISubscribe>();
-                //  repo.RegisterSubscriber(subscriber);
                 _ISubscribe.RegisterSubscriber(subscriber);
-
-
             }
             else
             {
-                return BadRequest(ModelState);
+                return Json("Unable to Subscribe User");
+
             }
-            return Ok("Sucessfully Subscribed!");
+            return Json("Thank you. You have been sucessufully subscibed to Dynamic DNA " + subscriber.FirstName + " " + subscriber.LastName);
         }
 
     }
