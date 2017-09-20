@@ -28,30 +28,23 @@ namespace BL.Services
 
         public void SendEmail(SubscriberInformation email)
         {
-            try
-            {
-                using (var mail = new MailMessage())
-                {
 
-                    mail.To.Add(email.EmailAddress);
-                    mail.From = new MailAddress(ConfigurationManager.AppSettings["Sender"].ToString());
-                    mail.Body = CreateBodyContent(email);
-                    mail.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = ConfigurationManager.AppSettings["Host"].ToString();
-                    smtp.Port = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
-                    smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = new System.Net.NetworkCredential
-                    (ConfigurationManager.AppSettings["Sender"].ToString(), ConfigurationManager.AppSettings["Password"].ToString());
-                    smtp.EnableSsl = true;
-                    smtp.Send(mail);
-
-                }
-            }
-            catch (Exception)
+            using (var mail = new MailMessage())
             {
 
-                throw null;
+                mail.To.Add(email.EmailAddress);
+                mail.From = new MailAddress(ConfigurationManager.AppSettings["Sender"].ToString());
+                mail.Body = CreateBodyContent(email);
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = ConfigurationManager.AppSettings["Host"].ToString();
+                smtp.Port = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential
+                (ConfigurationManager.AppSettings["Sender"].ToString(), ConfigurationManager.AppSettings["Password"].ToString());
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
             }
 
         }
