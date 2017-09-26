@@ -5,7 +5,7 @@ namespace BL.Services
     public interface INotification
     {
 
-        void SendEmail(SubscriberInformation subscriberEmail);
+        void SendEmail(Subscriber subscriberEmail);
 
 
     }

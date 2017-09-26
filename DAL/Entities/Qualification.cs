@@ -20,7 +20,7 @@ namespace DAL.Entities
         [Display(Name = "Qualification Level")]
         public int FkQualLevelId { get; set; }
         [ForeignKey("FkQualLevelId")]
-        public QualLevel QualLevels { get; set; }
+        public QualificationLevel QualLevels { get; set; }
 
 
 

@@ -150,7 +150,7 @@ namespace DAL.Entities
         public List<Files> MediaFile { get; set; }
         public List<Reference> References { get; set; }
         public List<Skill> Skills { get; set; }
-        public List<ResetPasswordRequest> ResetPasswordRequests { get; set; }
+
 
 
     }

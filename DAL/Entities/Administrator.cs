@@ -2,7 +2,7 @@
 
 namespace DAL.Entities
 {
-    public class AdministrationCredentials
+    public class Administrator
     {
         [Key]
         public int PkAdminId { get; set; }

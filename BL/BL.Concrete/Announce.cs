@@ -1,4 +1,4 @@
-﻿using ApplyOnline.DataContext;
+﻿using DAL.DBContext;
 using DAL.Entities;
 using System;
 using System.Configuration;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 
-namespace BL.Services
+namespace BL.BL.Concrete
 {
     public class Announce
     {
@@ -15,11 +15,11 @@ namespace BL.Services
         public void SendEmail(NewContent content)
         {
 
-            using (var context = new ApplicantsDbContext())
+            using (var context = new ApplyDbContext())
             {
 
-                IQueryable<SubscriberInformation> query = from sub in context.Subscribers
-                                                          select sub;
+                IQueryable<Subscriber> query = from sub in context.Subscribers
+                                               select sub;
 
                 foreach (var s in query)
                 {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
-namespace DDNApplyOnline
+namespace ApplyOnlineAPI
 {
     public static class WebApiConfig
     {
@@ -17,7 +14,8 @@ namespace DDNApplyOnline
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+
+                defaults: new { controller = "Register", action = "Subscribe", id = RouteParameter.Optional }
             );
         }
     }

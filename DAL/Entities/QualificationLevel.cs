@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Entities
 {
-    public class QualLevel
+    public class QualificationLevel
     {
         [Key]
         public int PkQualLevelId { get; set; }

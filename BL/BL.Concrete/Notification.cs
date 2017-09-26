@@ -1,14 +1,15 @@
-﻿using DAL.Entities;
+﻿using BL.Services;
+using DAL.Entities;
 using System;
 using System.Configuration;
 using System.IO;
 using System.Net.Mail;
 
-namespace BL.Services
+namespace BL.BL.Concrete
 {
     public class Notification : INotification
     {
-        public string CreateBodyContent(SubscriberInformation subscriber)
+        public string CreateBodyContent(Subscriber subscriber)
         {
             string path = System.Web.HttpContext.Current.Server.MapPath("~/EmailTemplate.html");
             string Body = string.Empty;
@@ -26,7 +27,7 @@ namespace BL.Services
 
 
 
-        public void SendEmail(SubscriberInformation email)
+        public void SendEmail(Subscriber email)
         {
 
             using (var mail = new MailMessage())

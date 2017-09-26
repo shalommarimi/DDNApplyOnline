@@ -1,7 +1,8 @@
-﻿using System.Security.Cryptography;
+﻿using BL.Services;
+using System.Security.Cryptography;
 using System.Text;
 
-namespace BL.Services
+namespace BL.BL.Concrete
 {
     public class EncryptPassword : IEncryptPassword
     {

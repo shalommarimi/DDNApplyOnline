@@ -1,14 +1,15 @@
 ﻿
 
+using DAL.DBContext;
 using DAL.Entities;
 using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace ApplyOnline.DataContext
 {
-    public class SeedDataContext : DropCreateDatabaseIfModelChanges<ApplicantsDbContext>
+    public class SeedDataContext : DropCreateDatabaseIfModelChanges<ApplyDbContext>
     {
-        protected override void Seed(ApplicantsDbContext context)
+        protected override void Seed(ApplyDbContext context)
         {
 
             //var hashingPassword = new Hashing();
@@ -23,24 +24,24 @@ namespace ApplyOnline.DataContext
             //    context.Admin.Add(adm);
 
 
-            IList<QualLevel> qualificationLevel = new List<QualLevel>();
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Certificate" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Higher Certificate" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Advanced Certificate" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "National Certificate" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Diploma" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "National Diploma" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Post Graduate Diploma" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Advanced Diploma" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Bachelor Degrees" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = " Baccalaureus Technologiae Degrees" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Honours Degrees" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "Masters" });
-            qualificationLevel.Add(new QualLevel() { QualLevelValue = "PhD" });
+            IList<QualificationLevel> qualificationLevel = new List<QualificationLevel>();
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Certificate" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Higher Certificate" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Advanced Certificate" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "National Certificate" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Diploma" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "National Diploma" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Post Graduate Diploma" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Advanced Diploma" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Bachelor Degrees" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = " Baccalaureus Technologiae Degrees" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Honours Degrees" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "Masters" });
+            qualificationLevel.Add(new QualificationLevel() { QualLevelValue = "PhD" });
 
 
-            foreach (QualLevel qua in qualificationLevel)
-                context.QualLevels.Add(qua);
+            foreach (QualificationLevel qua in qualificationLevel)
+                context.QualificationLevels.Add(qua);
 
             IList<Population> population = new List<Population>();
             population.Add(new Population() { PopulationValue = "African" });

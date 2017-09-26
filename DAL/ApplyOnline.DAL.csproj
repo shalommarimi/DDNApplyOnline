@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL</RootNamespace>
     <AssemblyName>DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,16 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,12 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbContext\ApplicantsDbContext.cs" />
-    <Compile Include="DbContext\SeedDataContext.cs" />
-    <Compile Include="Entities\AdministrationCredentials.cs" />
+    <Compile Include="DBContext\ApplyDbContext.cs" />
+    <Compile Include="DBContext\SeedDataContext.cs" />
+    <Compile Include="Entities\Administrator.cs" />
     <Compile Include="Entities\ApplicationField.cs" />
     <Compile Include="Entities\ApplicationType.cs" />
-    <Compile Include="Entities\Email.cs" />
     <Compile Include="Entities\Files.cs" />
     <Compile Include="Entities\Gender.cs" />
     <Compile Include="Entities\MaritalStatus.cs" />
@@ -62,13 +63,14 @@
     <Compile Include="Entities\Personal.cs" />
     <Compile Include="Entities\Population.cs" />
     <Compile Include="Entities\Qualification.cs" />
-    <Compile Include="Entities\QualLevel.cs" />
+    <Compile Include="Entities\QualificationLevel.cs" />
     <Compile Include="Entities\Reference.cs" />
-    <Compile Include="Entities\ResetPasswordRequest.cs" />
     <Compile Include="Entities\Skill.cs" />
-    <Compile Include="Entities\SubscriberInformation.cs" />
+    <Compile Include="Entities\Subscriber.cs" />
     <Compile Include="Entities\WorkExprience.cs" />
+    <Compile Include="Interface\IEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EntitiesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
