@@ -4,12 +4,12 @@ using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
 {
-    public class RegisterController : ApiController
+    public class ApplyController : ApiController
     {
 
         private ISubscribe _ISubscribe;
 
-        public RegisterController(ISubscribe iSubscribe, IEncryptPassword iEncryptPassword)
+        public ApplyController(ISubscribe iSubscribe, IEncryptPassword iEncryptPassword)
         {
             _ISubscribe = iSubscribe;
         }
