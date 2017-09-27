@@ -15,7 +15,7 @@ namespace ApplyOnlineAPI.Controllers
         }
 
 
-
+        [HttpPost]
         public IHttpActionResult Subscribe(Subscriber _Subscriber)
         {
             if (ModelState.IsValid)
