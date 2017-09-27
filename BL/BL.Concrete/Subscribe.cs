@@ -19,10 +19,8 @@ namespace BL.BL.Concrete
             {
                 db.Subscribers.Add(_Subscriber);
                 db.SaveChanges();
+                _Notification.SendEmail(_Subscriber);
             }
-            _Notification.SendEmail(_Subscriber);
-
-
 
         }
 

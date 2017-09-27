@@ -17,7 +17,7 @@ namespace BL.BL.Concrete
             {
                 Body = reader.ReadToEnd();
             }
-
+            Body = Body.Replace("{Heading}", "DNA Subscription");
             Body = Body.Replace("{FirstName}", subscriber.FirstName);
             Body = Body.Replace("{LastName}", subscriber.LastName);
             Body = Body.Replace("{Date}", DateTime.Now.ToShortDateString());

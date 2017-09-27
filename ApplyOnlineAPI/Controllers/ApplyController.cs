@@ -1,34 +1,25 @@
-﻿using BL.Services;
+﻿using ApplyOnlineAPI.Filters;
+using BL.Services;
 using DAL.Entities;
 using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
 {
-    public class ApplyController : ApiController
+    public class ApplyController : BaseAPIController
     {
 
-        private ISubscribe _ISubscribe;
-
-        public ApplyController(ISubscribe iSubscribe, IEncryptPassword iEncryptPassword)
+        public ApplyController(ISubscribe _ISubscribe) : base(_ISubscribe)
         {
-            _ISubscribe = iSubscribe;
+
         }
 
 
         [HttpPost]
+        [ModelValidator]
         public IHttpActionResult Subscribe(Subscriber _Subscriber)
         {
-            if (ModelState.IsValid)
-            {
-                _ISubscribe.RegisterSubscriber(_Subscriber);
-                return Json("Thank you. You have been sucessufully subscibed to Dynamic DNA");
-            }
-            else
-            {
-                return Json("Unable to Subscribe User");
-
-            }
-
+            ISubscribe.RegisterSubscriber(_Subscriber);
+            return Ok("Thank you. You have been sucessufully subscibed to Dynamic DNA");
         }
     }
 }

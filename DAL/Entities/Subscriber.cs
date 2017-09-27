@@ -31,6 +31,6 @@ namespace DAL.Entities
         [Display(Name = "Gender")]
         public int FkGenderId { get; set; }
         [ForeignKey("FkGenderId")]
-        public Gender Gender { get; set; }
+        public virtual Gender Gender { get; set; }
     }
 }

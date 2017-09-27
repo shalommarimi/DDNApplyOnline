@@ -3,32 +3,31 @@
 
 namespace ApplyOnlineAPI.App_Start
 {
+    using BL.BL.Concrete;
+    using BL.BL.Interfaces;
+    using BL.Services;
+    using DAL.Interface;
+    using DAL.Repositories;
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    using Ninject;
+    using Ninject.Web.Common;
     using System;
     using System.Web;
 
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-    using BL.Services;
-    using BL.BL.Concrete;
-    using DAL.Interface;
-    using DAL.Repositories;
-
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -36,7 +35,7 @@ namespace ApplyOnlineAPI.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -69,6 +68,8 @@ namespace ApplyOnlineAPI.App_Start
             kernel.Bind<ISubscribe>().To<Subscribe>();
             kernel.Bind<INotification>().To<Notification>();
             kernel.Bind<IEncryptPassword>().To<EncryptPassword>();
+            kernel.Bind<IApplicantUpdate>().To<ApplicantUpdate>();
+            kernel.Bind<IImageService>().To<ImageService>();
         }
     }
 }
