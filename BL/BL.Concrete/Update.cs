@@ -5,9 +5,9 @@ using System.Data.Entity;
 
 namespace BL.BL.Concrete
 {
-    public class ApplicantUpdate : IApplicantUpdate
+    public class Update : IUpdate
     {
-        public Personal Update(int id, Personal _Personal)
+        public Personal UpdateUser(int id, Personal _Personal)
         {
             using (var db = new ApplyDbContext())
             {

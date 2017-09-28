@@ -1,25 +1,58 @@
 ﻿using ApplyOnlineAPI.Filters;
-using BL.Services;
+using BL.BL.Interfaces;
 using DAL.Entities;
+using System.Data.Entity.Infrastructure;
 using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
 {
-    public class ApplyController : BaseAPIController
+    public class ApplyController : BaseController
     {
 
-        public ApplyController(ISubscribe _ISubscribe) : base(_ISubscribe)
-        {
-
-        }
+        public ApplyController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
+            : base(iRegister, iImageService, iUpdate) { }
 
 
         [HttpPost]
         [ModelValidator]
-        public IHttpActionResult Subscribe(Subscriber _Subscriber)
+        public IHttpActionResult Register(Personal _Personal)
         {
-            ISubscribe.RegisterSubscriber(_Subscriber);
-            return Ok("Thank you. You have been sucessufully subscibed to Dynamic DNA");
+            IRegister.RegisterUser(_Personal);
+            return Ok("Thank you for applying");
         }
+
+
+
+
+
+        [HttpPut]
+        [ModelValidator]
+        public IHttpActionResult Update(int id, Personal _Personal)
+        {
+
+            try
+            {
+                IUpdate.UpdateUser(id, _Personal);
+                return Ok(_Personal);
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+                return BadRequest("Unable to Update");
+
+            }
+
+
+        }
+
+
+        //[HttpPost]
+        //public async Task<IHttpActionResult> Upload(HttpPostedFileBase photo)
+        //{
+        //    var imageUrl = await imageService.UploadImageAsync(photo);
+        //    TempData["LatestImage"] = imageUrl.ToString();
+        //    return RedirectToAction("LatestImage");
+        //}
     }
 }

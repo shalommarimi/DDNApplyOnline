@@ -68,7 +68,7 @@ namespace ApplyOnlineAPI.App_Start
             kernel.Bind<ISubscribe>().To<Subscribe>();
             kernel.Bind<INotification>().To<Notification>();
             kernel.Bind<IEncryptPassword>().To<EncryptPassword>();
-            kernel.Bind<IApplicantUpdate>().To<ApplicantUpdate>();
+            kernel.Bind<IUpdate>().To<Update>();
             kernel.Bind<IImageService>().To<ImageService>();
         }
     }

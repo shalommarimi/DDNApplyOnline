@@ -4,23 +4,23 @@ using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
 {
-    public abstract class BaseAPIController : ApiController
+    public abstract class BaseController : ApiController
     {
         private IImageService _IImageService;
         private IRegister _IRegister;
-        private IApplicantUpdate _IApplicantUpdate;
+        private IUpdate _IUpdate;
         private ISubscribe _ISubscribe;
 
-        protected BaseAPIController(IRegister iRegister, IImageService iImageService, IApplicantUpdate iApplicantUpdate)
+        protected BaseController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
         {
 
-            _IApplicantUpdate = iApplicantUpdate;
+            _IUpdate = iUpdate;
             _IImageService = iImageService;
             _IRegister = iRegister;
 
         }
 
-        protected BaseAPIController(ISubscribe iSubscribe)
+        protected BaseController(ISubscribe iSubscribe)
         {
             _ISubscribe = iSubscribe;
 
@@ -42,9 +42,9 @@ namespace ApplyOnlineAPI.Controllers
             get { return _IRegister; }
         }
 
-        protected IApplicantUpdate IApplicantUpdate
+        protected IUpdate IUpdate
         {
-            get { return _IApplicantUpdate; }
+            get { return _IUpdate; }
         }
 
 

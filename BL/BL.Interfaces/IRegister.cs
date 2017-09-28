@@ -4,7 +4,7 @@ namespace BL.BL.Interfaces
 {
     public interface IRegister
     {
-        void Apply(Personal _Personal);
+        void RegisterUser(Personal _Personal);
 
     }
 }

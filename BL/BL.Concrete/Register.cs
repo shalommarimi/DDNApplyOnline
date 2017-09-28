@@ -16,12 +16,12 @@ namespace BL.BL.Concrete
         }
 
 
-        public void Apply(Personal _Personal)
+        public void RegisterUser(Personal _Personal)
         {
 
             using (var _db = new ApplyDbContext())
             {
-                _EncryptPassword.EncryptUserPassword(_Personal.New_Password);
+                _Personal.New_Password = _EncryptPassword.EncryptUserPassword(_Personal.New_Password);
                 _db.Personal.Add(_Personal);
                 _db.SaveChanges();
             }
