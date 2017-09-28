@@ -1,15 +1,16 @@
 ﻿using ApplyOnlineAPI.Filters;
 using BL.BL.Interfaces;
+using DAL.DBContext;
 using DAL.Entities;
-using System.Data.Entity.Infrastructure;
+using System.Linq;
 using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
 {
-    public class ApplyController : BaseController
+    public class ApplicantController : BaseController
     {
 
-        public ApplyController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
+        public ApplicantController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
             : base(iRegister, iImageService, iUpdate) { }
 
 
@@ -21,9 +22,14 @@ namespace ApplyOnlineAPI.Controllers
             return Ok("Thank you for applying");
         }
 
+        public IQueryable<Personal> GetUsers()
+        {
+            using (var db = new ApplyDbContext())
+            {
+                return db.Personal;
+            }
 
-
-
+        }
 
         [HttpPut]
         [ModelValidator]
@@ -36,7 +42,7 @@ namespace ApplyOnlineAPI.Controllers
                 return Ok(_Personal);
 
             }
-            catch (DbUpdateConcurrencyException)
+            catch (System.Exception)
             {
 
                 return BadRequest("Unable to Update");

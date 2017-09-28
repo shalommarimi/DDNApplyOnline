@@ -5,10 +5,10 @@ using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
 {
-    public class SubscriptionController : BaseController
+    public class DefaultController : BaseController
     {
 
-        public SubscriptionController(ISubscribe _ISubscribe) : base(_ISubscribe)
+        public DefaultController(ISubscribe _ISubscribe) : base(_ISubscribe)
         {
 
         }
@@ -19,7 +19,7 @@ namespace ApplyOnlineAPI.Controllers
         public IHttpActionResult Subscribe(Subscriber _Subscriber)
         {
             ISubscribe.RegisterSubscriber(_Subscriber);
-            return Ok("Thank you. You have been sucessufully subscibed to Dynamic DNA");
+            return Ok("Thank you. You have been sucessufully subscribed to Dynamic DNA");
         }
     }
 }

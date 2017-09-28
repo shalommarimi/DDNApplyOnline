@@ -4,11 +4,11 @@ using System.Text;
 
 namespace BL.BL.Concrete
 {
-    public class EncryptPassword : IEncryptPassword
+    public class Encrypt : IEncrypt
     {
 
 
-        public string EncryptUserPassword(string userId)
+        public string EncryptPassword(string userId)
         {
             byte[] hash;
             using (var sha1CryptoServiceProvider = new SHA1CryptoServiceProvider())

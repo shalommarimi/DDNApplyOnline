@@ -15,7 +15,14 @@ namespace ApplyOnlineAPI
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
 
-                defaults: new { controller = "Register", action = "Subscribe", id = RouteParameter.Optional }
+               defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "Applicant",
+                routeTemplate: "api/{controller}/{id}",
+
+                defaults: new { controller = "Applicant", action = "Register", id = RouteParameter.Optional }
             );
         }
     }

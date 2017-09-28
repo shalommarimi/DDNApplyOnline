@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Web;
 
 namespace DAL.Entities
 {
@@ -81,12 +80,12 @@ namespace DAL.Entities
         public string HomeLanguage { get; set; }
 
         [Required]
-        [Display(Name = "Prefered Language")]
-        public string PreferedCL { get; set; }
+        [Display(Name = "Prefered Communication Language")]
+        public string Prefered { get; set; }
 
 
         [Display(Name = "Other Language 1")]
-        public string FisrtOtherLanguage { get; set; }
+        public string FirstOtherLanguage { get; set; }
 
 
 
@@ -137,12 +136,12 @@ namespace DAL.Entities
         public string ConfirmPassword { get; set; }
 
 
-        [Display(Name = "Upload Picture")]
+        [Display(Name = "ImagePath")]
         public string ImagePath { get; set; }
 
 
-        [NotMapped]
-        public HttpPostedFileBase ImageFile { get; set; }
+        //[NotMapped]
+        //public HttpPostedFileBase ImageFile { get; set; }
 
 
         public List<WorkExprience> WorkExperiences { get; set; }
