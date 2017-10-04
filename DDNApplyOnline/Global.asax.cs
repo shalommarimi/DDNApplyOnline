@@ -1,6 +1,8 @@
-﻿using DDNApplyOnline.App_Start;
+﻿using ApplyOnlineAPI;
+using DDNApplyOnline.App_Start;
 using System;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -15,7 +17,8 @@ namespace DDNApplyOnline
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            // ControllerBuilder.Current.SetControllerFactory(new NInjectControllerFactory());
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+
 
         }
 

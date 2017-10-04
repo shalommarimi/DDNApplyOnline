@@ -1,11 +1,12 @@
-﻿using BL.BL.Interfaces;
+﻿using AutoMapper;
+using BL.BL.Interfaces;
+using BL.DTO;
 using BL.Services;
-using DAL.DBContext;
 using DAL.Entities;
 
 namespace BL.BL.Concrete
 {
-    public class Register : IRegister
+    public class Register : BaseDbContext, IRegister
     {
 
         private readonly IEncrypt _IEncrypt;
@@ -16,18 +17,19 @@ namespace BL.BL.Concrete
         }
 
 
-        public void RegisterUser(Personal _Personal)
+        public void RegisterUser(PersonalDTO _PersonalDTO)
         {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<SubscriberDTO, Subscriber>());
+            var mapper = config.CreateMapper();
+            var model = mapper.Map<PersonalDTO, Personal>(_PersonalDTO);
 
-            using (var _db = new ApplyDbContext())
-            {
-                _Personal.New_Password = _IEncrypt.EncryptPassword(_Personal.New_Password);
-                _Personal.ConfirmPassword = _IEncrypt.EncryptPassword(_Personal.ConfirmPassword);
-                _Personal.IsDeleted = false;
-                _db.Personal.Add(_Personal);
-                _db.SaveChanges();
-            }
+            model.New_Password = _IEncrypt.EncryptPassword(model.New_Password);
+            model.ConfirmPassword = _IEncrypt.EncryptPassword(model.ConfirmPassword);
 
+
+            model.IsDeleted = false;
+            db.Personal.Add(model);
+            db.SaveChanges();
         }
     }
 }

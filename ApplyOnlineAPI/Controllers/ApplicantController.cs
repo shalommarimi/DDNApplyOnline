@@ -1,8 +1,9 @@
 ﻿using ApplyOnlineAPI.Filters;
 using BL.BL.Interfaces;
+using BL.DTO;
 using DAL.DBContext;
 using DAL.Entities;
-using System.Linq;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
@@ -16,49 +17,46 @@ namespace ApplyOnlineAPI.Controllers
 
         [HttpPost]
         [ModelValidator]
-        public IHttpActionResult Register(Personal _Personal)
+        public IHttpActionResult RegisterP(PersonalDTO _PersonalDTO)
         {
-            IRegister.RegisterUser(_Personal);
-            return Ok("Thank you for applying");
-        }
-
-        public IQueryable<Personal> GetUsers()
-        {
-            using (var db = new ApplyDbContext())
-            {
-                return db.Personal;
-            }
-
-        }
-
-        [HttpPut]
-        [ModelValidator]
-        public IHttpActionResult Update(int id, Personal _Personal)
-        {
-
             try
             {
-                IUpdate.UpdateUser(id, _Personal);
-                return Ok(_Personal);
-
+                IRegister.RegisterUser(_PersonalDTO);
+                return Ok("Thank you for applying");
             }
             catch (System.Exception)
             {
 
-                return BadRequest("Unable to Update");
-
+                return BadRequest("Unable to Send Application");
             }
 
 
         }
 
+        public IEnumerable<Personal> GetAll()
+        {
+            var db = new ApplyDbContext();
 
-        //[HttpPost]
-        //public async Task<IHttpActionResult> Upload(HttpPostedFileBase photo)
-        //{
-        //    var imageUrl = await imageService.UploadImageAsync(photo);
-        //    TempData["LatestImage"] = imageUrl.ToString();
-        //    return RedirectToAction("LatestImage");
-        //}
+            return db.Personal;
+        }
+
+
+
+        [HttpPost]
+        [ModelValidator]
+        public IHttpActionResult Update(PersonalDTO _PersonalDTO)
+        {
+            try
+            {
+                IUpdate.UpdateUser(_PersonalDTO);
+                return Ok(_PersonalDTO);
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Unable to Update");
+            }
+
+        }
+
     }
 }

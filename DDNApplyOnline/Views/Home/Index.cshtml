@@ -10,6 +10,7 @@
 <head>
     <title>Dynamic DNA Online Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -38,17 +39,18 @@
                     <li><a href="#part" class="scroll">Partnerships</a></li>
                     <li>@Html.ActionLink("Login", "Login", "Authenticate")</li>
                     <li><a href="#social" class="scroll"><abbr class="fa fa-thumbs-up">Like Us</abbr></a></li>
-                    
+
 
                 </ul>
             </nav>
         </header>
     </div>
 
-    <section class="intro">s
+    <section class="intro">
+        
         <div class="inner">
-           
-           
+
+
             <div class="content">
 
                 <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay="0s">
@@ -101,7 +103,7 @@
 
         <section class="announcements" id="ann">
             <h2>Announcements</h2>
-                      
+
             <p class="parag">
                 Learnership Programme. Are you unemployed , looking for a learnership in information Technology and programming , want to become employable and apply the skills learnt? want to get a travel allowance while you study? , if the answer is yes then email us your cv, id copy and matric certificate to be considered. email to info@dynamicdna.co.za the subject line should be Learnership. Get this once in a lifetime opportunity. The purpose of the programme is to equip previously disadvantaged youths with nationally recognised qualifications, based on unit standards, while also providing them with workplace experience in the Systems Development landscape.Successful candidates who show dedication to the programme will be considered for a following Higher NQF level qualification, it is of utmost importance that learners give 100% dedication to this programme.
             </p>
@@ -255,7 +257,7 @@
                 <script>new Date().getFullYear() > 2010 && document.write("- " + new Date().getFullYear());</script> Dynamic DNA - DTH Group
             </p>
 
-            @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script type="text/javascript">
                 jQuery(document).ready(function ($) {
                     $(".scroll").click(function (event) {
@@ -268,65 +270,48 @@
     </section>
 
 
-    <div id="MyModalAdmin" class="modal fade" role="dialog">
 
-        <div class="modal-dialog modal-sm" id="modals">
+    <div id="MyModal" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
 
             <div class="modal-content">
 
                 <div class="modal-header">
                     <div class="modal-title">
-                        <h4>Administration Login</h4>
+                        <h4>Subscribe</h4>
 
 
                     </div>
                 </div>
                 <div class="modal-body">
-                    <div class="form-horizontal">
-                        @using (Html.BeginForm("Login", "Administrator"))
-            {
-                            @Html.ValidationSummary()
 
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Please enter your Email Address" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
 
-                            <fieldset>
-                                <div class="form-group">
+                        <div class="form-group">
+                            <label for="firstnames">First Names</label>
+                            <input type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp" placeholder="Please enter your First Names" required>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp" placeholder="Please enter your Last Names" required>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <input type="text" class="form-control" id="gender" aria-describedby="emailHelp" placeholder="Please enter your Email Address" required>
 
+                        </div>
 
-                                    <div class="col-xs-4">
-                                        <label for="ex2">Username</label>
-                                        <input class="form-control col-xs-4" name="txtUsername" type="text" required>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group">
-
-
-
-
-                                    <div class="col-xs-3">
-                                        <label for="ex2">Password</label>
-                                        <input class="form-control col-xs-4" name="txtPassword" type="password" required>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="mybtns">
-
-                                    <input type="submit" name="submit" class="btn" value="Login" />
-                                    <input type="reset" name="submit" class="btn" value="Reset" />
-
-
-                                </div>
-
-                            </fieldset>
-
-                        }
-                    </div>
+                        <button type="button" id="btnSubscribe" class="btn btn-primary">Subscribe</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
+                    </form>
                 </div>
 
             </div>
@@ -334,8 +319,39 @@
                 <button class="close" type="button" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
             </div>
         </div>
+
     </div>
 
+
+    @*------------Scripts----------------*@
+
+    
+    <script>
+        $("#btnSubscribe").click(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/Default/Subscribe";
+            options.type = "POST";
+
+            var obj = {};
+            obj.FirstName = $("#firstname").val();
+            obj.LastName = $("#lastname").val();
+            obj.EmailAddress = $("#email").val();
+            obj.FkGenderId = $("#gender").val();
+
+            options.data = JSON.stringify(obj);
+            options.contentType = "application/json; charset=utf-8";
+            options.dataType = "json";
+            crossDomain: true;
+            options.success = function (msg) {
+                $("#msg").html(msg);
+            };
+            options.error = function () {
+                $("#msg").html("Error while  calling the Web API!");
+
+            };
+            $.ajax(options);
+        });
+    </script>
 
 </body>
 

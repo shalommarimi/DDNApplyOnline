@@ -1,10 +1,11 @@
-﻿using DAL.Entities;
+﻿using BL.DTO;
 
 namespace BL.Services
 {
     public interface ISubscribe
     {
-        void RegisterSubscriber(Subscriber repository);
+
+        void RegisterSubscriber(SubscriberDTO _SubscriberDTO);
 
     }
 }

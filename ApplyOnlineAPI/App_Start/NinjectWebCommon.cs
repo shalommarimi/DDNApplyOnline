@@ -62,8 +62,10 @@ namespace ApplyOnlineAPI.App_Start
         /// Load your modules or register your services here!
         /// </summary>
         /// <param name="kernel">The kernel.</param>
+        /// 
         private static void RegisterServices(IKernel kernel)
         {
+
             kernel.Bind<IEntities>().To<EntitiesRepository>();
             kernel.Bind<ISubscribe>().To<Subscribe>();
             kernel.Bind<INotification>().To<Notification>();
@@ -71,6 +73,9 @@ namespace ApplyOnlineAPI.App_Start
             kernel.Bind<IUpdate>().To<Update>();
             kernel.Bind<IImageService>().To<ImageService>();
             kernel.Bind<IRegister>().To<Register>();
+            kernel.Bind<IAnnounce>().To<Announce>();
+
+
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using BL.Services;
-using DAL.DBContext;
+﻿using AutoMapper;
+using BL.DTO;
+using BL.Services;
 using DAL.Entities;
 
 namespace BL.BL.Concrete
 {
-    public class Subscribe : ISubscribe
+    public class Subscribe : BaseDbContext, ISubscribe
     {
         private readonly INotification _Notification;
 
@@ -15,16 +16,16 @@ namespace BL.BL.Concrete
 
         }
 
-        public void RegisterSubscriber(Subscriber _Subscriber)
+        public void RegisterSubscriber(SubscriberDTO _SubscriberDTO)
         {
-            using (var db = new ApplyDbContext())
-            {
 
-                db.Subscribers.Add(_Subscriber);
-                db.SaveChanges();
-                _Notification.SendEmail(_Subscriber);
-            }
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<SubscriberDTO, Subscriber>());
+            var mapper = config.CreateMapper();
+            var model = mapper.Map<SubscriberDTO, Subscriber>(_SubscriberDTO);
 
+            db.Subscribers.Add(model);
+            db.SaveChanges();
+            _Notification.SendEmail(model);
         }
 
 

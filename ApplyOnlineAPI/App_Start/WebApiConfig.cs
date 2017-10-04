@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ApplyOnlineAPI
 {
@@ -6,9 +7,9 @@ namespace ApplyOnlineAPI
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
-            // Web API routes
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -19,11 +20,14 @@ namespace ApplyOnlineAPI
             );
 
             config.Routes.MapHttpRoute(
-                name: "Applicant",
+                name: "ApplicantApi",
                 routeTemplate: "api/{controller}/{id}",
 
-                defaults: new { controller = "Applicant", action = "Register", id = RouteParameter.Optional }
+                defaults: new { controller = "Applicant", action = "RegisterP", id = RouteParameter.Optional }
             );
+
+
+
         }
     }
 }

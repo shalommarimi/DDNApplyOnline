@@ -1,10 +1,11 @@
-﻿using DAL.Entities;
+﻿using BL.DTO;
+using DAL.Entities;
 
 namespace BL.BL.Interfaces
 {
     public interface IUpdate
     {
 
-        Personal UpdateUser(int id, Personal _Person);
+        Personal UpdateUser(PersonalDTO _PersonalDTO);
     }
 }

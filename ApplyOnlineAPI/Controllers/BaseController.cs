@@ -11,6 +11,7 @@ namespace ApplyOnlineAPI.Controllers
         private IUpdate _IUpdate;
         private ISubscribe _ISubscribe;
 
+
         protected BaseController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
         {
 
@@ -24,12 +25,14 @@ namespace ApplyOnlineAPI.Controllers
         {
             _ISubscribe = iSubscribe;
 
+
         }
 
         protected ISubscribe ISubscribe
         {
             get { return _ISubscribe; }
         }
+
 
 
         protected IImageService IImageService

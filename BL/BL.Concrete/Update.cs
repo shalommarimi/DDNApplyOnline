@@ -1,21 +1,23 @@
-﻿using BL.BL.Interfaces;
-using DAL.DBContext;
+﻿using AutoMapper;
+using BL.DTO;
+using BL.BL.Interfaces;
 using DAL.Entities;
 using System.Data.Entity;
 
 namespace BL.BL.Concrete
 {
-    public class Update : IUpdate
+    public class Update : BaseDbContext, IUpdate
     {
-        public Personal UpdateUser(int id, Personal _Personal)
+        public Personal UpdateUser(PersonalDTO _PersonalDTO)
         {
-            using (var db = new ApplyDbContext())
-            {
-                db.Entry(_Personal).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<SubscriberDTO, Subscriber>());
+            var mapper = config.CreateMapper();
+            var model = mapper.Map<PersonalDTO, Personal>(_PersonalDTO);
 
-            return _Personal;
+            db.Entry(model).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return model;
         }
     }
 }

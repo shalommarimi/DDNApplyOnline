@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL.Entities
 {
+    [Serializable]
     public class Personal
     {
         [Key]

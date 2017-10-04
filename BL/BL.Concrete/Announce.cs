@@ -1,4 +1,5 @@
-﻿using DAL.DBContext;
+﻿using BL.BL.Interfaces;
+using DAL.DBContext;
 using DAL.Entities;
 using System;
 using System.Configuration;
@@ -8,11 +9,11 @@ using System.Text;
 
 namespace BL.BL.Concrete
 {
-    public class Announce
+    public class Announce : IAnnounce
     {
 
 
-        public void SendEmail(NewContent content)
+        public void Announcements(NewContent content)
         {
 
             using (var context = new ApplyDbContext())

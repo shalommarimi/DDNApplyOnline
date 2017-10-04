@@ -1,10 +1,10 @@
-﻿using DAL.Entities;
+﻿using BL.DTO;
 
 namespace BL.BL.Interfaces
 {
     public interface IRegister
     {
-        void RegisterUser(Personal _Personal);
+        void RegisterUser(PersonalDTO _PersonalDTO);
 
     }
 }
