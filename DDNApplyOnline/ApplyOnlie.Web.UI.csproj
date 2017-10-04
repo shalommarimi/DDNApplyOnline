@@ -165,7 +165,6 @@
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\index.css" />
     <Content Include="Css\ionicons.min.css" />
-    <Content Include="Css\JavaScript.js" />
     <Content Include="Css\login.css" />
     <Content Include="Css\media.css" />
     <Content Include="Css\partners.css" />
@@ -176,6 +175,9 @@
     <Content Include="Css\upload.css" />
     <Content Include="Css\waypoints.css" />
     <Content Include="EmailTemplate.html" />
+    <Content Include="Fonts\css\font-awesome.css" />
+    <Content Include="Fonts\css\font-awesome.min.css" />
+    <Content Include="Fonts\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\Back.jpg" />
     <Content Include="Images\Background.jpg" />
@@ -211,6 +213,39 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Fonts\fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\fonts\FontAwesome.otf" />
+    <Content Include="Fonts\less\animated.less" />
+    <Content Include="Fonts\less\bordered-pulled.less" />
+    <Content Include="Fonts\less\core.less" />
+    <Content Include="Fonts\less\fixed-width.less" />
+    <Content Include="Fonts\less\font-awesome.less" />
+    <Content Include="Fonts\less\icons.less" />
+    <Content Include="Fonts\less\larger.less" />
+    <Content Include="Fonts\less\list.less" />
+    <Content Include="Fonts\less\mixins.less" />
+    <Content Include="Fonts\less\path.less" />
+    <Content Include="Fonts\less\rotated-flipped.less" />
+    <Content Include="Fonts\less\screen-reader.less" />
+    <Content Include="Fonts\less\stacked.less" />
+    <Content Include="Fonts\less\variables.less" />
+    <Content Include="Fonts\scss\font-awesome.scss" />
+    <Content Include="Fonts\scss\_animated.scss" />
+    <Content Include="Fonts\scss\_bordered-pulled.scss" />
+    <Content Include="Fonts\scss\_core.scss" />
+    <Content Include="Fonts\scss\_fixed-width.scss" />
+    <Content Include="Fonts\scss\_icons.scss" />
+    <Content Include="Fonts\scss\_larger.scss" />
+    <Content Include="Fonts\scss\_list.scss" />
+    <Content Include="Fonts\scss\_mixins.scss" />
+    <Content Include="Fonts\scss\_path.scss" />
+    <Content Include="Fonts\scss\_rotated-flipped.scss" />
+    <Content Include="Fonts\scss\_screen-reader.scss" />
+    <Content Include="Fonts\scss\_stacked.scss" />
+    <Content Include="Fonts\scss\_variables.scss" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -255,8 +290,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Views\Application\Apply.cshtml" />
-    <Content Include="Views\Home\Subscribe.cshtml" />
+    <Content Include="Views\Application\ApplyNow.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Web.Debug.config">
@@ -269,12 +303,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\themes\" />
-    <Folder Include="Fonts\css\" />
-    <Folder Include="Fonts\fonts\" />
-    <Folder Include="Fonts\less\" />
-    <Folder Include="Fonts\scss\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Apply\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplyOnlineAPI\ApplyOnlineAPI.csproj">

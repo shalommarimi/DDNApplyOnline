@@ -19,7 +19,7 @@ namespace BL.BL.Concrete
 
         public void RegisterUser(PersonalDTO _PersonalDTO)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<SubscriberDTO, Subscriber>());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PersonalDTO, Personal>());
             var mapper = config.CreateMapper();
             var model = mapper.Map<PersonalDTO, Personal>(_PersonalDTO);
 

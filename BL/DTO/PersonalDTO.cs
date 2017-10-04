@@ -7,7 +7,6 @@ namespace BL.DTO
 
         public int PkApplicantId { get; set; }
         public string FirstName { get; set; }
-        public string MiddleName { get; set; }
         public string LastName { get; set; }
         public int FkGenderId { get; set; }
         public DateTime DOB { get; set; }

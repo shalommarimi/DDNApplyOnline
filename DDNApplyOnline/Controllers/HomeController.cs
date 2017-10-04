@@ -12,9 +12,5 @@ namespace DDNApplyOnline.Controllers
             return View();
         }
 
-        public ActionResult Subscribe()
-        {
-            return View();
-        }
     }
 }

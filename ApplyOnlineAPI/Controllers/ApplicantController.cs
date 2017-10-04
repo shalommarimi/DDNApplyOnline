@@ -4,20 +4,22 @@ using BL.DTO;
 using DAL.DBContext;
 using DAL.Entities;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
 {
+    [RoutePrefix("api/Applicant")]
     public class ApplicantController : BaseController
     {
 
         public ApplicantController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
             : base(iRegister, iImageService, iUpdate) { }
 
-
+        [Route("Apply")]
         [HttpPost]
         [ModelValidator]
-        public IHttpActionResult RegisterP(PersonalDTO _PersonalDTO)
+        public IHttpActionResult Apply(PersonalDTO _PersonalDTO)
         {
             try
             {
@@ -33,17 +35,20 @@ namespace ApplyOnlineAPI.Controllers
 
         }
 
+        [HttpGet]
+        [Route("GetAll")]
         public IEnumerable<Personal> GetAll()
         {
             var db = new ApplyDbContext();
 
-            return db.Personal;
+            return db.Personal.ToList();
         }
 
 
 
-        [HttpPost]
+        [HttpPut, HttpPost]
         [ModelValidator]
+        [Route("Update")]
         public IHttpActionResult Update(PersonalDTO _PersonalDTO)
         {
             try

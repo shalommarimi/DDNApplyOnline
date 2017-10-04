@@ -318,6 +318,7 @@
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DropDownListsController.cs" />
     <Compile Include="Filters\ModelValidatorAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

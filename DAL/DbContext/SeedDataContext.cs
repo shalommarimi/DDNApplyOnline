@@ -97,7 +97,7 @@ namespace ApplyOnline.DataContext
 
 
             foreach (ApplicationType appTypeName in applicationType)
-                context.ApplicationType.Add(appTypeName);
+                context.ApplicationTypes.Add(appTypeName);
 
 
 

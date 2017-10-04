@@ -5,7 +5,7 @@ namespace DDNApplyOnline.Controllers
     public class ApplicationController : Controller
     {
         // GET: Application
-        public ActionResult Apply()
+        public ActionResult ApplyNow()
         {
             return View();
         }

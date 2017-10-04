@@ -1,0 +1,412 @@
+﻿
+<!Doctype html>
+<html>
+
+<head>
+    <title>Apply Now</title>
+   
+</head>
+
+<body>
+    <div class="headingz">
+
+        <h3>Personal Information</h3>
+    </div>
+
+    <form>
+        <ul class="form-style-1">
+
+            <li>
+                <label>
+                    Names <span class="required">*</span>
+                </label>
+
+                <input type="text" id="names" autofocus class="field-long" placeholder="First Names" required />
+
+            </li>
+
+            <li>
+                <label>
+                    Last Name <span class="required">*</span>
+                </label>
+
+                <input type="text" id="lastname" class="field-long" placeholder="Last Name" required />
+
+            </li>
+
+
+
+            <li>
+                <label>
+                    Gender<span class="required">*</span>
+                </label>
+                <select class="field-long" id="gender"></select>
+            </li>
+
+
+
+            <li>
+                <label>
+                    Identity Number <span class="required">*</span>
+                </label>
+                <input type="number" id="idnumber" class="field-long" required />
+            </li>
+
+
+            <li>
+                <label>
+                    Cell Number <span class="required">*</span>
+                </label>
+                <input type="number" id="cellnumber" class="field-long" required />
+            </li>
+
+
+            <li>
+                <label>
+                    Email Address <span class="required">*</span>
+                </label>
+                <input type="email" id="emailaddress" class="field-long" required />
+            </li>
+
+            <li>
+
+                <input type="button" data-toggle="collapse" data-target="#Personal2" value="Next" />
+            </li>
+
+        </ul>
+
+
+
+        <div id="Personal2" class="collapse">
+            <ul class="form-style-1">
+                <li>
+                    <label>
+                        Nationality <span class="required">*</span>
+                    </label>
+                    <select id="nationality" autofocus class="field-long"></select>
+                </li>
+
+
+
+                <li>
+                    <label>
+                        Population <span class="required">*</span>
+                    </label>
+                    <select id="population" class="field-long"></select>
+                </li>
+
+
+
+                <li>
+                    <label>
+                        Driver's Licence
+                    </label>
+                    <input type="text" id="licence" class="field-long" required />
+                </li>
+
+
+
+                <li>
+                    <label>
+                        Marital Status <span class="required">*</span>
+                    </label>
+                    <select id="marital" class="field-long"></select>
+                </li>
+
+                <li>
+                    <label>
+                        Home Language <span class="required">*</span>
+                    </label>
+                    <input type="text" id="homelanguage" class="field-long" required />
+                </li>
+
+
+                <li>
+                    <label>
+                        Prefered Communication Language <span class="required">*</span>
+                    </label>
+                    <select id="pre" class="field-long">
+                        <option value="English">English</option>
+                        <option value="Afrikaans">Afrikaans</option>
+                    </select>
+                </li>
+
+                <li>
+                    <label>
+                        Other Language 1 <span class="required">*</span>
+                    </label>
+                    <input type="text" id="language1" class="field-long" required />
+                </li>
+                <li>
+
+                    <input type="button" data-toggle="collapse" data-target="#Personal3" value="Next" />
+                </li>
+            </ul>
+        </div>
+
+        <div id="Personal3" class="collapse">
+            <ul class="form-style-1">
+                <li>
+                    <label>
+                        Other Language 2
+                    </label>
+                    <input type="text" autofocus id="language2" class="field-long" required />
+                </li>
+
+
+                <li>
+                    <label>
+                        Other Language 3
+                    </label>
+                    <input type="text" id="language3" class="field-long" required />
+                </li>
+
+
+                <li>
+                    <label>
+                        Application Field <span class="required">*</span>
+                    </label>
+                    <select id="field" class="field-long"></select>
+                </li>
+
+                <li>
+                    <label>
+                        Application Type <span class="required">*</span>
+                    </label>
+                    <select id="apptype" class="field-long"></select>
+                </li>
+                <li>
+
+                    <input type="button" data-toggle="collapse" data-target="#Personal4" value="Next" />
+                </li>
+
+            </ul>
+        </div>
+
+        <div id="Personal4" class="collapse">
+            <ul class="form-style-1">
+                <li>
+                    <label>
+                        Username <span class="required">*</span>
+                    </label>
+                    <input type="text" autofocus id="username" class="field-long" required />
+                </li>
+
+
+                <li>
+                    <label>
+                        Password <span class="required">*</span>
+                    </label>
+                    <input type="password" id="pass" class="field-long" required />
+                    <input type="checkbox" id="pwcheck" /><label>Show Password</label>
+                </li>
+
+                <li>
+                    <label>
+                        Confirm Password <span class="required">*</span>
+                    </label>
+                    <input type="password" id="cpass" class="field-long" required />
+                </li>
+
+
+                <li>
+                    <input type="button" id="btnApply" value="Submit Application" />
+                    <input type="button" value="Cancel" />
+                </li>
+            </ul>
+        </div>
+    </form>
+
+    @*CheckBox to reveal Password*@
+    <script>
+        $(document).ready(function () {
+
+            $("#pass").focus();
+
+            $("#pwcheck").click(function () {
+                if ($("#pwcheck").is(":checked")) {
+                    $("#pass, #cpass").clone()
+                    .attr("type", "text").insertAfter("#pass, #cpass")
+                    .prev().remove();
+                }
+                else {
+                    $("#pass, #cpass").clone()
+                    .attr("type", "password").insertAfter("#pass, #cpass")
+                    .prev().remove();
+                }
+            });
+        });
+    </script>
+
+
+    @*Populating Lists*@
+    <script>
+        $(document).ready(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/DropDownLists/GetPopulationList";
+            options.type = "GET";
+            options.dataType = "json";
+            options.success = function (data) {
+                data.forEach(function (element) {
+                    $("#population").append("<option>"
+                    + element.PopulationValue + "</option>");
+                });
+            };
+            options.error = function () {
+                $("#msg").html("Server error! Failed to populate Populations");
+
+            };
+            $.ajax(options);
+        });
+    
+        $(document).ready(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/DropDownLists/GetGenderList";
+            options.type = "GET";
+            options.dataType = "json";
+            options.success = function (data) {
+                data.forEach(function (element) {
+                    $("#gender").append("<option>"
+                    + element.GenderValue + "</option>");
+                });
+            };
+            options.error = function () {
+                $("#msg").html("Server error! Failed to populate Gender");
+
+            };
+            $.ajax(options);
+        });
+
+
+
+
+        $(document).ready(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/DropDownLists/GetNationalityList";
+            options.type = "GET";
+            options.dataType = "json";
+            options.success = function (data) {
+                data.forEach(function (element) {
+                    $("#nationality").append("<option>"
+                    + element.NationalityValue + "</option>");
+                });
+            };
+            options.error = function () {
+                $("#msg").html("Server error! Failed to populate Nationalities");
+
+            };
+            $.ajax(options);
+        });
+
+
+
+        $(document).ready(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/DropDownLists/GetMaritalStatusList";
+            options.type = "GET";
+            options.dataType = "json";
+            options.success = function (data) {
+                data.forEach(function (element) {
+                    $("#marital").append("<option>"
+                    + element.MaritalStatusValue + "</option>");
+                });
+            };
+            options.error = function () {
+                $("#msg").html("Server error! Failed to populate Marital Statuses");
+
+            };
+            $.ajax(options);
+        });
+
+
+
+
+        $(document).ready(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/DropDownLists/GetApplicationFieldList";
+            options.type = "GET";
+            options.dataType = "json";
+            options.success = function (data) {
+                data.forEach(function (element) {
+                    $("#field").append("<option>"
+                    + element.FieldName + "</option>");
+                });
+            };
+            options.error = function () {
+                $("#msg").html("Server error! Failed to populate Application Fields");
+
+            };
+            $.ajax(options);
+        });
+
+
+
+
+        $(document).ready(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/DropDownLists/GetApplicationTypeList";
+            options.type = "GET";
+            options.dataType = "json";
+            options.success = function (data) {
+                data.forEach(function (element) {
+                    $("#apptype").append("<option>"
+                    + element.ApplicationTypeName + "</option>");
+                });
+            };
+            options.error = function () {
+                $("#msg").html("Server error! Failed to populate Application Types");
+
+            };
+            $.ajax(options);
+        });
+
+
+    </script>
+
+    @*Call API to insert Applicant*@
+    <script>
+        $("#btnApply").click(function () {
+            var options = {};
+            options.url = "http://localhost:53017/api/Applicant/Apply";
+            options.type = "POST";
+
+            var obj = {};
+            obj.FirstName = $("#names").val();
+            obj.LastName = $("#lastname").val();
+            obj.EmailAddress = $("#email").val();
+            obj.GenderValue = $("#gender").val();
+            obj.DOB = $("#dob").val();
+            obj.IdNumber = $("#idnumber").val();
+            obj.FkNationalityId = $("#nationality").val();
+            obj.FkPopulationId = $("#population").val();
+            obj.CellNumber = $("#cellnumber").val();
+            obj.DriversLicence = $("#licence").val();
+            obj.FkMaritalStatusId = $("#marital").val();
+            obj.HomeLanguage = $("#homelanguage").val();
+            obj.Prefered = $("#pre").val();
+            obj.FisrtOtherLanguage = $("#langauge1").val();
+            obj.SecondOtherLanguage = $("#langauge2").val();
+            obj.ThirdOtherLanguage = $("#langauge3").val();
+            obj.FkApplicationId = $("#apptype").val();
+            obj.FkApplicationFieldId = $("#field").val();
+            obj.Username = $("#username").val();
+            obj.New_Password = $("#pass").val();
+            obj.ConfirmPassword = $("#cpass").val();
+
+            options.data = JSON.stringify(obj);
+            options.contentType = "application/json; charset=utf-8";
+            options.dataType = "json";
+            crossDomain: true;
+            options.success = function (msg) {
+                $("#msg").html(msg);
+            };
+            options.error = function () {
+                $("#msg").html("Error while  calling the Web API!");
+
+            };
+            $.ajax(options);
+        });
+
+    </script>
+</body>
+</html>

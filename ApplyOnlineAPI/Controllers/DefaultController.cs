@@ -1,10 +1,6 @@
 ﻿using ApplyOnlineAPI.Filters;
 using BL.DTO;
 using BL.Services;
-using DAL.DBContext;
-using DAL.Entities;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 
 namespace ApplyOnlineAPI.Controllers
@@ -32,17 +28,6 @@ namespace ApplyOnlineAPI.Controllers
             }
 
         }
-
-        [HttpGet]
-        [Route("getList")]
-        public IEnumerable<Gender> getList()
-        {
-            var db = new ApplyDbContext();
-
-            return db.Gender.ToList();
-        }
-
-
 
 
     }

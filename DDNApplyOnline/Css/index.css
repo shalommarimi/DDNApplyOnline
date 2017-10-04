@@ -1,8 +1,8 @@
 ﻿
-.mailbody .form-control {
+/*.mailbody .form-control {
 	width: auto;
 	height: 300px;
-}
+}*/
 /*a:active {
 	
 }
@@ -31,9 +31,9 @@ html, body {
 	top: 0;
 	background-size: cover;
 }
-#MyModalAdmin .form-control {
+/*#MyModalAdmin .form-control {
 	width: auto;
-}
+}*/
 	.intro .inner {
 		display: table-cell;
 		vertical-align: middle;

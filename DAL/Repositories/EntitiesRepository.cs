@@ -37,7 +37,7 @@ namespace DAL.Repositories
         {
             get
             {
-                return dbContext.ApplicationType;
+                return dbContext.ApplicationTypes;
             }
         }
 

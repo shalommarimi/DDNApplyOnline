@@ -22,7 +22,7 @@
     border-radius: 4px;
 }
 
-.login-section .form-control {
+/*.login-section .form-control {
     content: "\f007";
     font-family: "FontAwesome";
     color: #fcbe1b;
@@ -30,7 +30,7 @@
     padding-top: 7px;
     font-size:x-large;
     text-align:center;
-}
+}*/
 
 #forgotpassword p {
     font-size: large;

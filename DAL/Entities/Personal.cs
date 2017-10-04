@@ -19,11 +19,6 @@ namespace DAL.Entities
         public string FirstName { get; set; }
 
 
-        [Display(Name = "Middle Name")]
-        [RegularExpression("^[a-zA-Z][a-zA-Z\\s]+$")]
-        public string MiddleName { get; set; }
-
-
         [Display(Name = "Last Name")]
         [Required]
         [StringLength(100, MinimumLength = 2)]
