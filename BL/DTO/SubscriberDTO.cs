@@ -9,6 +9,5 @@
         public string EmailAddress { get; set; }
         public int FkGenderId { get; set; }
 
-
     }
 }

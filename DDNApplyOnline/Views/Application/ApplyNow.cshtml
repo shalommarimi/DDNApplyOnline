@@ -4,14 +4,18 @@
 
 <head>
     <title>Apply Now</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
    
+
 </head>
 
-<body>
+<body onload="loadLists()">
     <div class="headingz">
 
         <h3>Personal Information</h3>
     </div>
+
 
     <form>
         <ul class="form-style-1">
@@ -21,7 +25,7 @@
                     Names <span class="required">*</span>
                 </label>
 
-                <input type="text" id="names" autofocus class="field-long" placeholder="First Names" required />
+                <input type="text" id="names" autofocus class="field-long" placeholder="First Names" />
 
             </li>
 
@@ -30,7 +34,7 @@
                     Last Name <span class="required">*</span>
                 </label>
 
-                <input type="text" id="lastname" class="field-long" placeholder="Last Name" required />
+                <input type="text" id="lastname" class="field-long" placeholder="Last Name"/>
 
             </li>
 
@@ -43,13 +47,20 @@
                 <select class="field-long" id="gender"></select>
             </li>
 
+            <li>
+                <label>
+                    DOB<span class="required">*</span>
+                </label>
+                <input type="date" id="dob" class="field-long" placeholder="Date Of Birth" />
+            </li>
+
 
 
             <li>
                 <label>
                     Identity Number <span class="required">*</span>
                 </label>
-                <input type="number" id="idnumber" class="field-long" required />
+                <input type="number" id="idnumber" class="field-long" placeholder="RSA Identity Number" required />
             </li>
 
 
@@ -57,7 +68,7 @@
                 <label>
                     Cell Number <span class="required">*</span>
                 </label>
-                <input type="number" id="cellnumber" class="field-long" required />
+                <input type="number" id="cellnumber" class="field-long" placeholder="Cell Number" required />
             </li>
 
 
@@ -65,7 +76,7 @@
                 <label>
                     Email Address <span class="required">*</span>
                 </label>
-                <input type="email" id="emailaddress" class="field-long" required />
+                <input type="email" id="emailaddress" class="field-long" placeholder="Email Address" required />
             </li>
 
             <li>
@@ -101,7 +112,7 @@
                     <label>
                         Driver's Licence
                     </label>
-                    <input type="text" id="licence" class="field-long" required />
+                    <input type="text" id="licence" class="field-long" placeholder="Code 10, 8, 14 Etc" required />
                 </li>
 
 
@@ -117,7 +128,7 @@
                     <label>
                         Home Language <span class="required">*</span>
                     </label>
-                    <input type="text" id="homelanguage" class="field-long" required />
+                    <input type="text" id="homelanguage" class="field-long" placeholder="Home Language" required />
                 </li>
 
 
@@ -135,7 +146,7 @@
                     <label>
                         Other Language 1 <span class="required">*</span>
                     </label>
-                    <input type="text" id="language1" class="field-long" required />
+                    <input type="text" id="language1" class="field-long" placeholder="Other Language" required />
                 </li>
                 <li>
 
@@ -150,7 +161,7 @@
                     <label>
                         Other Language 2
                     </label>
-                    <input type="text" autofocus id="language2" class="field-long" required />
+                    <input type="text" autofocus id="language2" placeholder="Other Language" class="field-long" required />
                 </li>
 
 
@@ -158,7 +169,7 @@
                     <label>
                         Other Language 3
                     </label>
-                    <input type="text" id="language3" class="field-long" required />
+                    <input type="text" id="language3" class="field-long" placeholder="Other Language" required />
                 </li>
 
 
@@ -189,7 +200,7 @@
                     <label>
                         Username <span class="required">*</span>
                     </label>
-                    <input type="text" autofocus id="username" class="field-long" required />
+                    <input type="text" autofocus id="username" placeholder="Username" class="field-long" required />
                 </li>
 
 
@@ -197,216 +208,27 @@
                     <label>
                         Password <span class="required">*</span>
                     </label>
-                    <input type="password" id="pass" class="field-long" required />
-                    <input type="checkbox" id="pwcheck" /><label>Show Password</label>
+                    <input type="password" id="pass" class="field-long" placeholder="New Password" required />
+                    
                 </li>
 
                 <li>
                     <label>
                         Confirm Password <span class="required">*</span>
                     </label>
-                    <input type="password" id="cpass" class="field-long" required />
+                    <input type="password" id="cpass" class="field-long" placeholder="Confirm Password" required />
+                    <input type="checkbox"  id="pwcheck" onchange="unhidePassword()" /><label>Show Password</label>
                 </li>
 
 
                 <li>
-                    <input type="button" id="btnApply" value="Submit Application" />
+                    <input type="button" id="btnApplyNow" onload="ApplyNow()" value="Submit Application" />
                     <input type="button" value="Cancel" />
                 </li>
             </ul>
         </div>
     </form>
 
-    @*CheckBox to reveal Password*@
-    <script>
-        $(document).ready(function () {
-
-            $("#pass").focus();
-
-            $("#pwcheck").click(function () {
-                if ($("#pwcheck").is(":checked")) {
-                    $("#pass, #cpass").clone()
-                    .attr("type", "text").insertAfter("#pass, #cpass")
-                    .prev().remove();
-                }
-                else {
-                    $("#pass, #cpass").clone()
-                    .attr("type", "password").insertAfter("#pass, #cpass")
-                    .prev().remove();
-                }
-            });
-        });
-    </script>
-
-
-    @*Populating Lists*@
-    <script>
-        $(document).ready(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/DropDownLists/GetPopulationList";
-            options.type = "GET";
-            options.dataType = "json";
-            options.success = function (data) {
-                data.forEach(function (element) {
-                    $("#population").append("<option>"
-                    + element.PopulationValue + "</option>");
-                });
-            };
-            options.error = function () {
-                $("#msg").html("Server error! Failed to populate Populations");
-
-            };
-            $.ajax(options);
-        });
-    
-        $(document).ready(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/DropDownLists/GetGenderList";
-            options.type = "GET";
-            options.dataType = "json";
-            options.success = function (data) {
-                data.forEach(function (element) {
-                    $("#gender").append("<option>"
-                    + element.GenderValue + "</option>");
-                });
-            };
-            options.error = function () {
-                $("#msg").html("Server error! Failed to populate Gender");
-
-            };
-            $.ajax(options);
-        });
-
-
-
-
-        $(document).ready(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/DropDownLists/GetNationalityList";
-            options.type = "GET";
-            options.dataType = "json";
-            options.success = function (data) {
-                data.forEach(function (element) {
-                    $("#nationality").append("<option>"
-                    + element.NationalityValue + "</option>");
-                });
-            };
-            options.error = function () {
-                $("#msg").html("Server error! Failed to populate Nationalities");
-
-            };
-            $.ajax(options);
-        });
-
-
-
-        $(document).ready(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/DropDownLists/GetMaritalStatusList";
-            options.type = "GET";
-            options.dataType = "json";
-            options.success = function (data) {
-                data.forEach(function (element) {
-                    $("#marital").append("<option>"
-                    + element.MaritalStatusValue + "</option>");
-                });
-            };
-            options.error = function () {
-                $("#msg").html("Server error! Failed to populate Marital Statuses");
-
-            };
-            $.ajax(options);
-        });
-
-
-
-
-        $(document).ready(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/DropDownLists/GetApplicationFieldList";
-            options.type = "GET";
-            options.dataType = "json";
-            options.success = function (data) {
-                data.forEach(function (element) {
-                    $("#field").append("<option>"
-                    + element.FieldName + "</option>");
-                });
-            };
-            options.error = function () {
-                $("#msg").html("Server error! Failed to populate Application Fields");
-
-            };
-            $.ajax(options);
-        });
-
-
-
-
-        $(document).ready(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/DropDownLists/GetApplicationTypeList";
-            options.type = "GET";
-            options.dataType = "json";
-            options.success = function (data) {
-                data.forEach(function (element) {
-                    $("#apptype").append("<option>"
-                    + element.ApplicationTypeName + "</option>");
-                });
-            };
-            options.error = function () {
-                $("#msg").html("Server error! Failed to populate Application Types");
-
-            };
-            $.ajax(options);
-        });
-
-
-    </script>
-
-    @*Call API to insert Applicant*@
-    <script>
-        $("#btnApply").click(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/Applicant/Apply";
-            options.type = "POST";
-
-            var obj = {};
-            obj.FirstName = $("#names").val();
-            obj.LastName = $("#lastname").val();
-            obj.EmailAddress = $("#email").val();
-            obj.GenderValue = $("#gender").val();
-            obj.DOB = $("#dob").val();
-            obj.IdNumber = $("#idnumber").val();
-            obj.FkNationalityId = $("#nationality").val();
-            obj.FkPopulationId = $("#population").val();
-            obj.CellNumber = $("#cellnumber").val();
-            obj.DriversLicence = $("#licence").val();
-            obj.FkMaritalStatusId = $("#marital").val();
-            obj.HomeLanguage = $("#homelanguage").val();
-            obj.Prefered = $("#pre").val();
-            obj.FisrtOtherLanguage = $("#langauge1").val();
-            obj.SecondOtherLanguage = $("#langauge2").val();
-            obj.ThirdOtherLanguage = $("#langauge3").val();
-            obj.FkApplicationId = $("#apptype").val();
-            obj.FkApplicationFieldId = $("#field").val();
-            obj.Username = $("#username").val();
-            obj.New_Password = $("#pass").val();
-            obj.ConfirmPassword = $("#cpass").val();
-
-            options.data = JSON.stringify(obj);
-            options.contentType = "application/json; charset=utf-8";
-            options.dataType = "json";
-            crossDomain: true;
-            options.success = function (msg) {
-                $("#msg").html(msg);
-            };
-            options.error = function () {
-                $("#msg").html("Error while  calling the Web API!");
-
-            };
-            $.ajax(options);
-        });
-
-    </script>
+        
 </body>
 </html>

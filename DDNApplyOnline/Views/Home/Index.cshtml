@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 
@@ -10,10 +11,10 @@
 <head>
     <title>Dynamic DNA Online Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
 </head>
 
-<body>
+<body onload="loadLists()">
 
     <div id="landing">
         <header class="cd-auto-hide-header">
@@ -47,7 +48,7 @@
     </div>
 
     <section class="intro">
-        
+
         <div class="inner">
 
 
@@ -63,31 +64,6 @@
 
                     <a class="btn" href="@Url.Action("ApplyNow","Application")">Apply Now</a>
                 </section>
-                @if (ViewBag.Message != null)
-                {
-                    <div class="alert alert-success">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Success!</strong>@ViewBag.Message.
-                    </div>
-
-                }
-                @if (ViewBag.ErrorSub != null)
-                {
-
-                    <div class="alert alert-danger">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Oops! </strong> @ViewBag.ErrorSub
-                    </div>
-                }
-
-                @if (ViewBag.Error != null)
-                {
-
-                    <div class="alert alert-danger">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Oops! </strong> @ViewBag.Error
-                    </div>
-                }
 
 
             </div>
@@ -202,22 +178,13 @@
             <h2>Partnerships</h2>
             <div class="cycle-slideshow">
 
-                <span class="cycle-prev">&#9001;</span>
-                <span class="cycle-next">&#9002;</span>
-
 
                 <img src="~/Images/blue.png" />
-                <img src="~/Images/partners.png" />
                 <img src="~/Images/cloud.png" />
-                <img src="~/Images/partners.png" />
                 <img src="~/Images/dvt.png" />
-                <img src="~/Images/partners.png" />
                 <img src="~/Images/microsoft.png" />
-                <img src="~/Images/partners.png" />
                 <img src="~/Images/mict.png" />
-                <img src="~/Images/partners.png" />
                 <img src="~/Images/indigo.png" />
-                <img src="~/Images/partners.png" />
                 <img src="~/Images/partners.png" />
 
             </div>
@@ -232,12 +199,12 @@
 
                 <div class="icons">
 
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-youtube"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#landing" class="scroll fa fa-home"></a>
+                    <a href="#" class="fa fa-facebook" target="_blank"></a>
+                    <a href="#" class="fa fa-twitter" target="_blank"></a>
+                    <a href="#" class="fa fa-linkedin" target="_blank"></a>
+                    <a href="https://www.youtube.com/watch?v=GPgp5JgpL4M" class="fa fa-youtube" target="_blank"></a>
+                    <a href="#" class="fa fa-instagram" target="_blank"></a>
+                    <a href="#landing" class="scroll fa fa-home" target="_blank"></a>
                     <text class="text-sub" data-toggle="modal" data-target="#MyModal"> Subscribe </></text>
                     <text class="text-sub" data-toggle="modal" data-target="#MyModalAdmin">  Dashboard </></text>
 
@@ -253,11 +220,11 @@
     <section class="section-footer">
         <footer>
             <p>
-                &copy; 2010
-                <script>new Date().getFullYear() > 2010 && document.write("- " + new Date().getFullYear());</script> Dynamic DNA - DTH Group
+                &copy; 2016
+                <script>new Date().getFullYear() > 2016 && document.write("- " + new Date().getFullYear());</script> Dynamic DNA - DTH Group
             </p>
 
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
             <script type="text/javascript">
                 jQuery(document).ready(function ($) {
                     $(".scroll").click(function (event) {
@@ -305,11 +272,11 @@
 
                         <div class="form-group">
                             <label for="gender">Gender</label>
-                            <select class="form-control" id="gender" aria-describedby="emailHelp" ></select>
+                            <select class="form-control" id="gender"></select>
 
                         </div>
 
-                        <button type="button" id="btnSubscribe" class="btn btn-primary">Subscribe</button>
+                        <input type="button" id="btnSubscribe" class="btn btn-primary" onclick="Subscribe()" value="Subscribe">
                         <button type="reset" class="btn btn-primary">Reset</button>
                     </form>
                 </div>
@@ -322,56 +289,6 @@
 
     </div>
 
-
-    @*------------Scripts----------------*@
-
-    
-    <script>
-        $("#btnSubscribe").click(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/Default/Subscribe";
-            options.type = "POST";
-
-            var obj = {};
-            obj.FirstName = $("#firstname").val();
-            obj.LastName = $("#lastname").val();
-            obj.EmailAddress = $("#email").val();
-            obj.FkGenderId = $("#gender").val();
-
-            options.data = JSON.stringify(obj);
-            options.contentType = "application/json; charset=utf-8";
-            options.dataType = "json";
-            crossDomain: true;
-            options.success = function (msg) {
-                $("#msg").html(msg);
-            };
-            options.error = function () {
-                $("#msg").html("Error while  calling the Web API!");
-
-            };
-            $.ajax(options);
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            var options = {};
-            options.url = "http://localhost:53017/api/DropDownLists/GetGenderList";
-            options.type = "GET";
-            options.dataType = "json";
-            options.success = function (data) {
-                data.forEach(function (element) {
-                    $("#gender").append("<option>"
-                    + element.GenderValue + "</option>");
-                });
-            };
-            options.error = function () {
-                $("#msg").html("Server error! Could not load Gender");
-
-            };
-            $.ajax(options);
-        });
-    </script>
 
 </body>
 

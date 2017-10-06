@@ -7,13 +7,15 @@ namespace DDNApplyOnline.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
 
+
+
             bundles.Add(new ScriptBundle("~/MyScriptsC").Include(
                "~/MyScripts/main.js",
-               "~/MyScripts/jquery-3.0.0.min.js",
-               "~/MyScripts/highcharts.js",
-                "~/MyScripts/highcharts.js"
+               "~/MyScripts/highcharts.js"
+
 
               ));
+
 
 
             bundles.Add(new ScriptBundle("~/MyScriptsB").Include(
@@ -21,7 +23,7 @@ namespace DDNApplyOnline.App_Start
                 "~/MyScripts/waypoints.js",
                 "~/MyScripts/jquery.cycle2.min.js"
 
-            ));
+                            ));
 
 
             bundles.Add(new ScriptBundle("~/ScriptsB").Include(
@@ -33,6 +35,9 @@ namespace DDNApplyOnline.App_Start
                "~/Scripts/jquery-ui-1.12.1.min.js"
 
                 ));
+
+
+
 
 
             bundles.Add(new StyleBundle("~/CssB").Include(
