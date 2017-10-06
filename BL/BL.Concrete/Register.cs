@@ -10,10 +10,12 @@ namespace BL.BL.Concrete
     {
 
         private readonly IEncrypt _IEncrypt;
+        private IGeneratePDF _IGeneratePDF;
 
-        public Register(IEncrypt iEncryptPassword)
+        public Register(IEncrypt iEncryptPassword, IGeneratePDF iGeneratePDF)
         {
             _IEncrypt = iEncryptPassword;
+            _IGeneratePDF = iGeneratePDF;
         }
 
 
@@ -23,13 +25,27 @@ namespace BL.BL.Concrete
             var mapper = config.CreateMapper();
             var model = mapper.Map<PersonalDTO, Personal>(_PersonalDTO);
 
+
+
+            //Hashing Password and Setting IsDeleted default value
             model.New_Password = _IEncrypt.EncryptPassword(model.New_Password);
             model.ConfirmPassword = _IEncrypt.EncryptPassword(model.ConfirmPassword);
-
-
             model.IsDeleted = false;
-            db.Personal.Add(model);
-            db.SaveChanges();
+
+
+
+            try
+            {
+                db.Personal.Add(model);
+                db.SaveChanges();
+                _IGeneratePDF.CreatePDF(_PersonalDTO);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

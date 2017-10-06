@@ -3,6 +3,7 @@ using BL.BL.Interfaces;
 using BL.DTO;
 using DAL.Entities;
 using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.IO;
 using System.Web;
 
@@ -34,7 +35,7 @@ namespace BL.BL.Concrete
             }
 
 
-            iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(document, new FileStream(TempPath + model.FirstName + "_" + model.LastName + ".pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(TempPath + model.FirstName + "_" + model.LastName + ".pdf", FileMode.Create));
 
             document.Open();
 

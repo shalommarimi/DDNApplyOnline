@@ -10,15 +10,15 @@ namespace ApplyOnlineAPI.Controllers
         private IRegister _IRegister;
         private IUpdate _IUpdate;
         private ISubscribe _ISubscribe;
-        private IGeneratePDF _IGeneratePDF;
 
-        protected BaseController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate, IGeneratePDF iGeneratePDF)
+
+        protected BaseController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
         {
 
             _IUpdate = iUpdate;
             _IImageService = iImageService;
             _IRegister = iRegister;
-            _IGeneratePDF = iGeneratePDF;
+
 
         }
 
@@ -34,10 +34,7 @@ namespace ApplyOnlineAPI.Controllers
             get { return _ISubscribe; }
         }
 
-        protected IGeneratePDF IGeneratePDF
-        {
-            get { return _IGeneratePDF; }
-        }
+
 
 
 
