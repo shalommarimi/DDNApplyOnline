@@ -122,6 +122,8 @@
   <ItemGroup>
     <Compile Include="BL.Concrete\Announce.cs" />
     <Compile Include="BL.Concrete\BaseDbContext.cs" />
+    <Compile Include="BL.Concrete\GeneratePDF.cs" />
+    <Compile Include="BL.Interfaces\IGeneratePDF.cs" />
     <Compile Include="DTO\GenderDTO.cs" />
     <Compile Include="DTO\PersonalDTO.cs" />
     <Compile Include="DTO\SubscriberDTO.cs" />

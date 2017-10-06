@@ -1,5 +1,5 @@
 ﻿function ApplyNow() {
-    $("#btnApplyNow").click(function () {
+   
         var options = {};
         options.url = "http://localhost:53017/api/Applicant/Apply";
         options.type = "POST";
@@ -35,7 +35,4 @@
             $("#msg").html(msg);
         };
 
-
-
-    });
 }
