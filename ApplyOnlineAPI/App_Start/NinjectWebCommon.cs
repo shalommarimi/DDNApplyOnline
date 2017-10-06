@@ -74,6 +74,7 @@ namespace ApplyOnlineAPI.App_Start
             kernel.Bind<IImageService>().To<ImageService>();
             kernel.Bind<IRegister>().To<Register>();
             kernel.Bind<IAnnounce>().To<Announce>();
+            kernel.Bind<IGeneratePDF>().To<GeneratePDF>();
 
 
         }

@@ -13,8 +13,8 @@ namespace ApplyOnlineAPI.Controllers
     public class ApplicantController : BaseController
     {
 
-        public ApplicantController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
-            : base(iRegister, iImageService, iUpdate) { }
+        public ApplicantController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate, IGeneratePDF iGeneratePDF)
+            : base(iRegister, iImageService, iUpdate, iGeneratePDF) { }
 
         [Route("Apply")]
         [HttpPost]
@@ -23,6 +23,7 @@ namespace ApplyOnlineAPI.Controllers
         {
             try
             {
+                IGeneratePDF.CreatePDF(_PersonalDTO);
                 IRegister.RegisterUser(_PersonalDTO);
                 return Ok("Thank you for applying");
             }
