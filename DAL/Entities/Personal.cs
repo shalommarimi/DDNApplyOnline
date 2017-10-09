@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
 
 namespace DAL.Entities
 {
@@ -136,8 +137,8 @@ namespace DAL.Entities
         public string ImagePath { get; set; }
 
 
-        //[NotMapped]
-        //public HttpPostedFileBase ImageFile { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
 
 
         public List<WorkExprience> WorkExperiences { get; set; }

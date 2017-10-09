@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -140,14 +140,14 @@
     <Compile Include="DTO\PersonalDTO.cs" />
     <Compile Include="DTO\SubscriberDTO.cs" />
     <Compile Include="BL.Concrete\Update.cs" />
-    <Compile Include="BL.Concrete\ImageService.cs" />
+    <Compile Include="BL.Concrete\FileService.cs" />
     <Compile Include="BL.Concrete\Register.cs" />
     <Compile Include="BL.Concrete\ConnectionString.cs" />
     <Compile Include="BL.Interfaces\IAnnounce.cs" />
     <Compile Include="BL.Interfaces\INotification.cs" />
     <Compile Include="BL.Interfaces\IRegister.cs" />
     <Compile Include="BL.Interfaces\ISubscribe.cs" />
-    <Compile Include="BL.Interfaces\IImageService.cs" />
+    <Compile Include="BL.Interfaces\IFileService.cs" />
     <Compile Include="BL.Interfaces\IUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BL.Concrete\Encrypt.cs" />

@@ -13,7 +13,7 @@ namespace DAL.Repositories
         {
             get
             {
-                return dbContext.Gender;
+                return dbContext.Genders;
             }
         }
 

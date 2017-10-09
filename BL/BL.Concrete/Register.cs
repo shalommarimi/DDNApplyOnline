@@ -10,17 +10,21 @@ namespace BL.BL.Concrete
     {
 
         private readonly IEncrypt _IEncrypt;
-        private IGeneratePDF _IGeneratePDF;
+        private readonly IFileService _IFileService;
+        private readonly IGeneratePDF _IGeneratePDF;
 
-        public Register(IEncrypt iEncryptPassword, IGeneratePDF iGeneratePDF)
+        public Register(IEncrypt iEncryptPassword, IGeneratePDF iGeneratePDF, IFileService iFileService)
         {
             _IEncrypt = iEncryptPassword;
             _IGeneratePDF = iGeneratePDF;
+            _IFileService = iFileService;
         }
 
 
         public void RegisterUser(PersonalDTO _PersonalDTO)
         {
+
+            //Mapping
             var config = new MapperConfiguration(cfg => cfg.CreateMap<PersonalDTO, Personal>());
             var mapper = config.CreateMapper();
             var model = mapper.Map<PersonalDTO, Personal>(_PersonalDTO);
@@ -36,9 +40,13 @@ namespace BL.BL.Concrete
 
             try
             {
+                //Adds and Saves into DB
                 db.Personal.Add(model);
                 db.SaveChanges();
+
+                //Generates PDF
                 _IGeneratePDF.CreatePDF(_PersonalDTO);
+
             }
             catch (System.Exception)
             {

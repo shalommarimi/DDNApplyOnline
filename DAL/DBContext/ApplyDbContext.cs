@@ -16,7 +16,7 @@ namespace DAL.DBContext
         public virtual DbSet<Personal> Personal { get; set; }
         public virtual DbSet<ApplicationType> ApplicationTypes { get; set; }
         public virtual DbSet<ApplicationField> ApplicationField { get; set; }
-        public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<Gender> Genders { get; set; }
         public virtual DbSet<Subscriber> Subscribers { get; set; }
         public virtual DbSet<NewContent> NewContents { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }

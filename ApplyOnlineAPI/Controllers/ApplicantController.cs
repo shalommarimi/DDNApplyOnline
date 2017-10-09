@@ -13,7 +13,7 @@ namespace ApplyOnlineAPI.Controllers
     public class ApplicantController : BaseController
     {
 
-        public ApplicantController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
+        public ApplicantController(IRegister iRegister, IFileService iImageService, IUpdate iUpdate)
             : base(iRegister, iImageService, iUpdate) { }
 
         [Route("Apply")]
@@ -46,15 +46,14 @@ namespace ApplyOnlineAPI.Controllers
         }
 
 
-
-        [HttpPut, HttpPost]
-        [ModelValidator]
         [Route("Update")]
-        public IHttpActionResult Update(PersonalDTO _PersonalDTO)
+        [HttpPut]
+        [ModelValidator]
+        public IHttpActionResult Update(int id, PersonalDTO _PersonalDTO)
         {
             try
             {
-                IUpdate.UpdateUser(_PersonalDTO);
+                IUpdate.UpdateUser(id, _PersonalDTO);
                 return Ok(_PersonalDTO);
             }
             catch (System.Exception)

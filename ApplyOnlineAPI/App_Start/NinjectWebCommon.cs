@@ -71,7 +71,7 @@ namespace ApplyOnlineAPI.App_Start
             kernel.Bind<INotification>().To<Notification>();
             kernel.Bind<IEncrypt>().To<Encrypt>();
             kernel.Bind<IUpdate>().To<Update>();
-            kernel.Bind<IImageService>().To<ImageService>();
+            kernel.Bind<IFileService>().To<FileService>();
             kernel.Bind<IRegister>().To<Register>();
             kernel.Bind<IAnnounce>().To<Announce>();
             kernel.Bind<IGeneratePDF>().To<GeneratePDF>();

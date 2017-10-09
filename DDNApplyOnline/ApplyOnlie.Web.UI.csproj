@@ -156,6 +156,7 @@
     <Content Include="AjaxScripts\defaultCtrl.js" />
     <Content Include="AjaxScripts\general.js" />
     <Content Include="AjaxScripts\loadDropDownLists.js" />
+    <Content Include="AjaxScripts\update.js" />
     <Content Include="MyScripts\jquery.waterwheelCarousel.js" />
     <Content Include="MyScripts\jquery.waterwheelCarousel.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -300,6 +301,7 @@
     <Content Include="Views\Application\ApplyNow.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Views\Application\Dashboard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

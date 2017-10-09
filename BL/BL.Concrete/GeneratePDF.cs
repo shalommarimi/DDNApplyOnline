@@ -9,8 +9,14 @@ using System.Web;
 
 namespace BL.BL.Concrete
 {
-    public class GeneratePDF : IGeneratePDF
+    public class GeneratePDF : BaseDbContext, IGeneratePDF
     {
+        private readonly IFileService _IImageService;
+
+        public GeneratePDF(IFileService iImageService)
+        {
+            _IImageService = iImageService;
+        }
         public void CreatePDF(PersonalDTO _PersonalDTO)
         {
 
@@ -22,35 +28,25 @@ namespace BL.BL.Concrete
 
 
             var document = new Document();
-            document.SetPageSize(PageSize.A4.Rotate());
+            document.SetPageSize(PageSize.A4);
 
 
-
-            string TempPath = HttpContext.Current.Server.MapPath("~/CVs");
-
-            //Checking if Folder exist, if not, its created
-            if (!Directory.Exists(TempPath))
-            {
-                Directory.CreateDirectory(TempPath);
-            }
-
-
-            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(TempPath + model.FirstName + "_" + model.LastName + ".pdf", FileMode.Create));
+            string TempPath = HttpContext.Current.Server.MapPath("~/CVs/");
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(TempPath + model.FirstName + " " + model.LastName + " Resumé " + ".pdf", FileMode.Create));
 
             document.Open();
 
-
             //Font For Caption
-            Font arialCaption = FontFactory.GetFont("Arial", 30, BaseColor.BLACK);
+            Font arialCaption = FontFactory.GetFont("Arial", 22, BaseColor.BLACK);
             arialCaption.SetStyle(Font.BOLD);
 
             //Font For Headings
-            Font arialHeading = FontFactory.GetFont("Arial", 20, BaseColor.BLACK);
+            Font arialHeading = FontFactory.GetFont("Arial", 19, BaseColor.BLACK);
             arialHeading.SetStyle(Font.BOLD);
 
 
             //Font For the Details
-            Font arialContent = FontFactory.GetFont("Arial", 12, BaseColor.BLACK);
+            Font arialContent = FontFactory.GetFont("Arial", 14, BaseColor.BLACK);
             arialContent.SetStyle(Font.NORMAL);
 
             //Paragraphs
@@ -64,25 +60,39 @@ namespace BL.BL.Concrete
             Content.Font = arialContent;
 
             //Spacing after text
-            Headings.SpacingAfter = 14;
-            Content.SpacingAfter = 5;
+            Caption.SpacingAfter = 15;
+            Headings.SpacingAfter = 10;
+            Content.SetLeading(2, 2);
 
 
 
-            string space = "";
-            Caption.Add("Curriculum Vitae Of ");
-            Caption.Add(space);
-            Headings.Add("Personal Particulars");
-            Content.Add("First Names ");
-            Caption.Add(space);
+            Caption.Add("Curriculum Vitae Of " + model.FirstName + " " + model.LastName + "\n");
+
+            Headings.Add("Personal Particulars" + "\n");
+            Content.Add("First Names: " + model.FirstName + "\n");
+            Content.Add("Last Name: " + model.LastName + "\n");
+            //  Content.Add("Gender: " + model.Gender + "\n");
+            Content.Add("DOB: " + model.DOB.ToShortDateString() + "\n");
+            Content.Add("Identity Number: " + model.IdNumber + "\n");
+            Content.Add("Nationality: " + model.FirstName + "\n");
+            Content.Add("Population: " + model.FirstName + "\n");
+            Content.Add("Cell Number: " + model.CellNumber + "\n");
+            Content.Add("Email Address: " + model.EmailAddress + "\n");
+            Content.Add("Drivers's Licence: " + model.DriversLicence + "\n");
+            Content.Add("Marital Status: " + model.FirstName + "\n");
+            Content.Add("Home Language: " + model.HomeLanguage + "\n");
+            Content.Add("Prefered Language: " + model.Prefered + "\n");
+            Content.Add("Other Language 1: " + model.FirstOtherLanguage + "\n");
+            Content.Add("Other Language 2: " + model.SecondOtherLanguage + "\n");
+            Content.Add("Other Language 3: " + model.ThirdOtherLanguage + "\n");
+            Content.Add("Application Fied: " + model.FirstName + "\n");
+            Content.Add("Application Type: " + model.FirstName + "\n");
 
             document.Add(Caption);
             document.Add(Headings);
             document.Add(Content);
 
             document.Close();
-
-
 
         }
     }

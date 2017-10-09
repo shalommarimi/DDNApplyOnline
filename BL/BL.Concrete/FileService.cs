@@ -8,13 +8,13 @@ using System.Web;
 
 namespace BL.BL.Concrete
 {
-    public class ImageService : IImageService
+    public class FileService : IFileService
     {
 
-        public async Task<string> UploadImageAsync(HttpPostedFileBase imageToUpload)
+        public async Task<string> UploadFileAsync(HttpPostedFileBase fileToUpload)
         {
             string imageFullPath = null;
-            if (imageToUpload == null || imageToUpload.ContentLength == 0)
+            if (fileToUpload == null || fileToUpload.ContentLength == 0)
             {
                 return null;
             }
@@ -33,11 +33,11 @@ namespace BL.BL.Concrete
                        );
                 }
 
-                string imageName = Guid.NewGuid().ToString() + "-" + Path.GetExtension(imageToUpload.FileName);
+                string fileName = Guid.NewGuid().ToString() + "-" + Path.GetExtension(fileToUpload.FileName);
 
-                CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageName);
-                cloudBlockBlob.Properties.ContentType = imageToUpload.ContentType;
-                await cloudBlockBlob.UploadFromStreamAsync(imageToUpload.InputStream);
+                CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
+                cloudBlockBlob.Properties.ContentType = fileToUpload.ContentType;
+                await cloudBlockBlob.UploadFromStreamAsync(fileToUpload.InputStream);
 
                 imageFullPath = cloudBlockBlob.Uri.ToString();
             }

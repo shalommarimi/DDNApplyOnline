@@ -62,7 +62,7 @@ namespace ApplyOnline.DataContext
 
 
             foreach (Gender gen in genders)
-                context.Gender.Add(gen);
+                context.Genders.Add(gen);
 
 
 

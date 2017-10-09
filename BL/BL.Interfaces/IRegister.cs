@@ -4,7 +4,7 @@ namespace BL.BL.Interfaces
 {
     public interface IRegister
     {
-        void RegisterUser(PersonalDTO _PersonalDTO);
+        void RegisterUser(PersonalDTO _PersonalDT);
 
     }
 }

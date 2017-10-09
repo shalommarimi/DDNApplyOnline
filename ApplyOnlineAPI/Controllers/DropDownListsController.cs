@@ -18,7 +18,7 @@ namespace ApplyOnlineAPI.Controllers
         [Route("GetGenderList")]
         public IEnumerable<Gender> GetAllGenders()
         {
-            return db.Gender.ToList();
+            return db.Genders.ToList();
         }
 
 

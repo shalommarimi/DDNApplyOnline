@@ -1,26 +1,21 @@
-﻿
-<!Doctype html>
+﻿<!Doctype html>
 <html>
-
 <head>
-    <title>Apply Now</title>
-
+    <title>Applicant Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
 </head>
-
 <body onload="loadLists()">
-
-
-
-    <div class="headingz">
-        <h3>Personal Information</h3>
-    </div>
-
-
     <form>
         <ul class="form-style-1">
+            <li>
+                <label>
+                    Id <span class="required">*</span>
+                </label>
+
+                <input type="text" id="UserId" value="57" autofocus class="field-long" placeholder="ID" />
+
+            </li>
 
             <li>
                 <label>
@@ -224,22 +219,23 @@
 
 
                 <li>
-                    <input type="button" id="btnApplyNow" value="Submit Application" />
+                    <input type="button" id="btnUpdate" value="Update Information" />
                     <input type="button" value="Cancel" />
                 </li>
             </ul>
         </div>
 
     </form>
-    @*Will be moved to seperate js file*@
-    <script>
-        $("#btnApplyNow").click(function () {
 
+    <script>
+        $("#btnUpdate").click(function () {
             var options = {};
-            options.url = "http://localhost:53017/api/Applicant/Apply";
-            options.type = "POST";
+            options.url = "http://localhost:53017/api/Applicant/Update/" + $("#UserId").val();
+
+            options.type = "PUT";
 
             var obj = {};
+            obj.PkApplicantId = $("#UserId").val();
             obj.FirstName = $("#names").val();
             obj.LastName = $("#lastname").val();
             obj.EmailAddress = $("#email").val();
@@ -265,21 +261,16 @@
             options.data = JSON.stringify(obj);
             options.contentType = "application/json";
             options.dataType = "html";
-            crossDomain: true;
-
             options.success = function (msg) {
-                $("#msgSuccess").html(msgSuccess);
+                $("#msg").html(msg);
             };
-            options.error = function () {
-                $("#msgError").html("Could Not Call Service API!");
+            options.error = function (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u) {
+                alert(u);
+                $("#msg").html("Error while calling the Web API!");
 
             };
-
             $.ajax(options);
-
         });
     </script>
-
-
 </body>
 </html>

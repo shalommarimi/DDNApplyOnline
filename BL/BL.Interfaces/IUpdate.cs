@@ -6,6 +6,6 @@ namespace BL.BL.Interfaces
     public interface IUpdate
     {
 
-        Personal UpdateUser(PersonalDTO _PersonalDTO);
+        Personal UpdateUser(int id, PersonalDTO _PersonalDTO);
     }
 }

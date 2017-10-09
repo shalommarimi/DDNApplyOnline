@@ -1,4 +1,4 @@
-﻿function ApplyNow() {
+﻿function sendApplication() {
    
         var options = {};
         options.url = "http://localhost:53017/api/Applicant/Apply";
@@ -18,14 +18,15 @@
         obj.FkMaritalStatusId = $("#marital").val();
         obj.HomeLanguage = $("#homelanguage").val();
         obj.Prefered = $("#pre").val();
-        obj.FirstOtherLanguage = $("#langauge1").val();
-        obj.SecondOtherLanguage = $("#langauge2").val();
-        obj.ThirdOtherLanguage = $("#langauge3").val();
+        obj.FirstOtherLanguage = $("#langone").val();
+        obj.SecondOtherLanguage = $("#langtwo").val();
+        obj.ThirdOtherLanguage = $("#langthree").val();
         obj.FkApplicationTypeId = $("#apptype").val();
         obj.FkApplicationFieldId = $("#field").val();
         obj.Username = $("#username").val();
         obj.New_Password = $("#pass").val();
         obj.ConfirmPassword = $("#cpass").val();
+
 
         options.data = JSON.stringify(obj);
         options.contentType = "application/json";
@@ -34,5 +35,6 @@
         options.success = function (msg) {
             $("#msg").html(msg);
         };
-
+        $.ajax(options);
 }
+

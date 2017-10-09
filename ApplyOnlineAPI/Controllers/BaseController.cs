@@ -6,13 +6,13 @@ namespace ApplyOnlineAPI.Controllers
 {
     public abstract class BaseController : ApiController
     {
-        private IImageService _IImageService;
+        private IFileService _IImageService;
         private IRegister _IRegister;
         private IUpdate _IUpdate;
         private ISubscribe _ISubscribe;
 
 
-        protected BaseController(IRegister iRegister, IImageService iImageService, IUpdate iUpdate)
+        protected BaseController(IRegister iRegister, IFileService iImageService, IUpdate iUpdate)
         {
 
             _IUpdate = iUpdate;
@@ -38,7 +38,7 @@ namespace ApplyOnlineAPI.Controllers
 
 
 
-        protected IImageService IImageService
+        protected IFileService IImageService
         {
             get { return _IImageService; }
         }
