@@ -152,7 +152,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AjaxScripts\applicantCtrl.js" />
     <Content Include="AjaxScripts\defaultCtrl.js" />
     <Content Include="AjaxScripts\general.js" />
     <Content Include="AjaxScripts\loadDropDownLists.js" />
