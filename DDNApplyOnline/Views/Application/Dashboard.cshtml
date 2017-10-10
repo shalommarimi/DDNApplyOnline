@@ -216,7 +216,7 @@
                     <input type="password" id="cpass" class="field-long" placeholder="Confirm Password" required />
                     <input type="checkbox" id="pwcheck" onchange="unhidePassword()" /><label>Show Password</label>
                 </li>
-               
+
 
 
                 <li>
@@ -231,7 +231,7 @@
     <script>
         $("#btnUpdate").click(function () {
             var options = {};
-            options.url = "http://localhost:53017/api/Applicant/Update/" + $("#UserId").val();
+            options.url = "http://localhost:53017/Update/" + $("#UserId").val();
 
             options.type = "PUT";
 

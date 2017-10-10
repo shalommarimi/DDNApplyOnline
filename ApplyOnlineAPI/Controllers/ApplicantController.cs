@@ -6,7 +6,6 @@ using DAL.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
 namespace ApplyOnlineAPI.Controllers
 {
@@ -47,15 +46,15 @@ namespace ApplyOnlineAPI.Controllers
         }
 
 
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
+
         [Route("Update")]
         [HttpPut]
         [ModelValidator]
-        public IHttpActionResult Update(int id, PersonalDTO _PersonalDTO)
+        public IHttpActionResult Update(PersonalDTO _PersonalDTO)
         {
             try
             {
-                IUpdate.UpdateUser(id, _PersonalDTO);
+                IUpdate.UpdateUser(_PersonalDTO);
                 return Ok(_PersonalDTO);
             }
             catch (System.Exception)
