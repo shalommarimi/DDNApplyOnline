@@ -282,6 +282,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -301,6 +302,7 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Application\Dashboard.cshtml" />
+    <Content Include="Views\Files\UploadRequiredFiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -317,6 +319,10 @@
     <ProjectReference Include="..\ApplyOnlineAPI\ApplyOnlineAPI.csproj">
       <Project>{62483692-4306-4F52-AE3C-4D94BC3DFE48}</Project>
       <Name>ApplyOnlineAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BL\ApplyOnline.BL.csproj">
+      <Project>{1AB82361-ABD8-4178-90EA-EDC1B37C388D}</Project>
+      <Name>ApplyOnline.BL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

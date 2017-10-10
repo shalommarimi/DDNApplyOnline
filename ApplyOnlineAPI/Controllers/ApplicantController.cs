@@ -6,6 +6,7 @@ using DAL.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ApplyOnlineAPI.Controllers
 {
@@ -46,6 +47,7 @@ namespace ApplyOnlineAPI.Controllers
         }
 
 
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [Route("Update")]
         [HttpPut]
         [ModelValidator]

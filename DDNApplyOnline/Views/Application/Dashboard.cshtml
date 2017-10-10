@@ -216,6 +216,7 @@
                     <input type="password" id="cpass" class="field-long" placeholder="Confirm Password" required />
                     <input type="checkbox" id="pwcheck" onchange="unhidePassword()" /><label>Show Password</label>
                 </li>
+               
 
 
                 <li>
@@ -259,13 +260,14 @@
             obj.ConfirmPassword = $("#cpass").val();
 
             options.data = JSON.stringify(obj);
+            crossDomain = true;
             options.contentType = "application/json";
             options.dataType = "html";
             options.success = function (msg) {
                 $("#msg").html(msg);
             };
-            options.error = function (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u) {
-                alert(u);
+            options.error = function () {
+                alert("Error!");
                 $("#msg").html("Error while calling the Web API!");
 
             };

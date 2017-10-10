@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace BL.DTO
 {
@@ -28,6 +29,7 @@ namespace BL.DTO
         public string New_Password { get; set; }
         public string ConfirmPassword { get; set; }
         public string ImagePath { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
 
 
     }

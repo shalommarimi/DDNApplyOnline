@@ -1,0 +1,65 @@
+﻿<!Doctype html>
+<html>
+<head>
+    <title>Upload Required Files</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("UploadRequiredFiles", "Files", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form enctype="multipart/form-data" method="post">
+            <ul class="form-style-1">
+
+                <li>
+                    <label>
+                        Profile Picture <span class="required">*</span>
+                    </label>
+
+                    <input type="file" id="names" />
+
+                </li>
+
+                <li>
+                    <label>
+                        Identity Document <span class="required">*</span>
+                    </label>
+
+                    <input type="file" id="names" />
+
+                </li>
+                <li>
+                    <label>
+                        Qualification <span class="required">*</span>
+                    </label>
+
+                    <input type="file" id="names" />
+
+                </li>
+                <li>
+                    <label>
+                        Matriculation <span class="required">*</span>
+                    </label>
+
+                    <input type="file" id="names" />
+
+                </li>
+                <li>
+                    <label>
+                        Other Documents <span class="required">*</span>
+                    </label>
+
+                    <input type="file" id="names" />
+
+                </li>
+                <li>
+                    <input type="button" id="btnApplyNow" value="Upload Files" />
+                    <input type="button" value="Cancel" />
+                </li>
+
+
+                </ul>
+         </form>
+    }
+    </body>
+</html>
+

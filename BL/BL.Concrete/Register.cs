@@ -34,6 +34,7 @@ namespace BL.BL.Concrete
             //Hashing Password and Setting IsDeleted default value
             model.New_Password = _IEncrypt.EncryptPassword(model.New_Password);
             model.ConfirmPassword = _IEncrypt.EncryptPassword(model.ConfirmPassword);
+            //model.ImagePath = ConfigurationManager.AppSettings["defaultImagePath"].ToString();
             model.IsDeleted = false;
 
 
