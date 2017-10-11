@@ -275,11 +275,11 @@
             crossDomain: true;
 
             options.success = function (msg) {
-                $("#msgSuccess").html(msgSuccess);
+                alert("Application Successfully Submitted");
             };
-            options.error = function () {
-                $("#msgError").html("Could Not Call Service API!");
 
+            options.error = function () {
+                alert("Could Not Submit Application!");
             };
 
             $.ajax(options);

@@ -263,13 +263,12 @@
             crossDomain = true;
             options.contentType = "application/json";
             options.dataType = "html";
-            options.success = function (msg) {
-                $("#msg").html(msg);
+            options.success = function () {
+                alert("Sucessfully Updated Information");
             };
             options.error = function () {
-                alert("Error!");
-                $("#msg").html("Error while calling the Web API!");
-
+                alert("Could Not Update Information!");
+               
             };
             $.ajax(options);
         });
