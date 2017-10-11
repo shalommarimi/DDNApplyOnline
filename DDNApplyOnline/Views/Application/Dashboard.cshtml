@@ -205,7 +205,7 @@
                     <label>
                         Password <span class="required">*</span>
                     </label>
-                    <input type="password" id="pass" class="field-long" placeholder="New Password" required />
+                    <input type="password" id="passNew" class="field-long" placeholder="New Password" required />
 
                 </li>
 
@@ -256,7 +256,7 @@
             obj.FkApplicationTypeId = $("#apptype").val();
             obj.FkApplicationFieldId = $("#field").val();
             obj.Username = $("#username").val();
-            obj.New_Password = $("#pass").val();
+            obj.NewPassword = $("#passNew").val();
             obj.ConfirmPassword = $("#cpass").val();
 
             options.data = JSON.stringify(obj);

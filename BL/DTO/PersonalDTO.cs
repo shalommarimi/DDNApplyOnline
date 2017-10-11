@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web;
 
 namespace BL.DTO
 {
@@ -26,10 +25,10 @@ namespace BL.DTO
         public int FkApplicationFieldId { get; set; }
         public int FkApplicationTypeId { get; set; }
         public string Username { get; set; }
-        public string New_Password { get; set; }
+        public string NewPassword { get; set; }
         public string ConfirmPassword { get; set; }
         public string ImagePath { get; set; }
-        public HttpPostedFileBase ImageFile { get; set; }
+
 
 
     }

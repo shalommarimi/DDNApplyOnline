@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Web;
 
 namespace DAL.Entities
 {
@@ -122,14 +121,14 @@ namespace DAL.Entities
         [MinLength(6)]
         [DataType(DataType.Password)]
         [Display(Name = "New Password")]
-        public string New_Password { get; set; }
+        public string NewPassword { get; set; }
 
 
         [NotMapped]
         [MinLength(6)]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
-        [Compare("New_Password", ErrorMessage = "The Password and Confirmation Password do not match.")]
+        [Compare("NewPassword", ErrorMessage = "The Password and Confirmation Password do not match.")]
         public string ConfirmPassword { get; set; }
 
 
@@ -137,8 +136,8 @@ namespace DAL.Entities
         public string ImagePath { get; set; }
 
 
-        [NotMapped]
-        public HttpPostedFileBase ImageFile { get; set; }
+        //[NotMapped]
+        //public HttpPostedFileBase ImageFile { get; set; }
 
 
         public List<WorkExprience> WorkExperiences { get; set; }
