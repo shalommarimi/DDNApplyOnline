@@ -13,7 +13,7 @@
                     Id <span class="required">*</span>
                 </label>
 
-                <input type="text" id="UserId" value="57" autofocus class="field-long" placeholder="ID" />
+                <input type="text" id="UserId" value="1" autofocus class="field-long" placeholder="ID" />
 
             </li>
 
@@ -231,7 +231,7 @@
     <script>
         $("#btnUpdate").click(function () {
             var options = {};
-            options.url = "http://localhost:53017/Update/" + $("#UserId").val();
+            options.url = "http://localhost:53017/api/Applicant/Update/";
 
             options.type = "PUT";
 
